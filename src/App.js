@@ -1,9 +1,7 @@
-import VehicleTable from "./components/VehicleTable/VehicleTable"
-
 function App() {
   return (
     <div className="App">
-      <VehicleTable />
+      Projeto Carango Bom
     </div>
   );
 }
