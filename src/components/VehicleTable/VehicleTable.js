@@ -6,6 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import React from 'react'
+import { formatToCurrency } from '../../infraestructure/currency'
 
 export default function VehicleTable({ vehicles }) {
   return (
@@ -27,7 +28,7 @@ export default function VehicleTable({ vehicles }) {
               </TableCell>
               <TableCell>{vehicle.model}</TableCell>
               <TableCell>{vehicle.year}</TableCell>
-              <TableCell>{vehicle.price}</TableCell>
+              <TableCell>{formatToCurrency(vehicle.price)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
