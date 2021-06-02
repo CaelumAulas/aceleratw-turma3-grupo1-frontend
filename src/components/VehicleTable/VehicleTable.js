@@ -11,7 +11,13 @@ import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import React from 'react'
 import { formatToCurrency } from '../../infraestructure/currency'
 
-export default function VehicleTable({ vehicles }) {
+export default function VehicleTable({
+  vehicles = [],
+  onDeleteHandler = () => {},
+  onEditHandler = () => {},
+}) {
+  if (vehicles.length === 0) return <p>Não há veículos a venda.</p>
+
   return (
     <TableContainer component={Paper} elevation={3}>
       <Table aria-label="simple table">
@@ -34,10 +40,18 @@ export default function VehicleTable({ vehicles }) {
               <TableCell>{vehicle.year}</TableCell>
               <TableCell>{formatToCurrency(vehicle.price)}</TableCell>
               <TableCell>
-                <IconButton color="inherit" aria-label="Editar item">
+                <IconButton
+                  onClick={onEditHandler}
+                  color="inherit"
+                  aria-label="Editar item"
+                >
                   <EditOutlinedIcon />
                 </IconButton>
-                <IconButton color="inherit" aria-label="Apagar item">
+                <IconButton
+                  onClick={onDeleteHandler}
+                  color="inherit"
+                  aria-label="Apagar item"
+                >
                   <DeleteOutlineIcon />
                 </IconButton>
               </TableCell>
