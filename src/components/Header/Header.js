@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
 import React from 'react'
+import { Box } from '@material-ui/core'
 
 export default function Header() {
   const useStyles = makeStyles(theme => ({
@@ -36,6 +37,9 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             CARANGO BOM
           </Typography>
+          <Box pr={2}>
+            <p>Boas vindas, fulano</p>
+          </Box>
           <Button color="inherit">Entrar</Button>
           <Button color="inherit">Veículos</Button>
         </Toolbar>
