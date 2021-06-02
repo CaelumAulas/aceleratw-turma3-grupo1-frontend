@@ -1,5 +1,6 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
 import Header from './components/Header/Header'
 import { Box } from '@material-ui/core'
 
@@ -10,8 +11,11 @@ function App() {
       <Box pt="10rem">
         <Router>
           <Switch>
-            <Route path="/">
+            <Route path="/login">
               <LoginPage />
+            </Route>
+            <Route path="/">
+              <HomePage />
             </Route>
           </Switch>
         </Router>
