@@ -6,6 +6,7 @@ import Alert from '@material-ui/lab/Alert'
 import React, { useContext, useState } from 'react'
 import UserFlowValidations from '../../contexts/UserFlowFormValidations'
 import useFormValidators from '../../hooks/useFormValidators'
+import { Link as NavLink } from 'react-router-dom'
 
 export default function LoginForm({ onChange, onSubmit }) {
   const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ export default function LoginForm({ onChange, onSubmit }) {
         </Button>
         <p>
           ou{' '}
-          <Link href="/novo-usuario" onClick={() => {}}>
+          <Link component={NavLink} to="/novo-usuario">
             Cadastre-se {context.olar}
           </Link>
         </p>

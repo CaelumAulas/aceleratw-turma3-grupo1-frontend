@@ -8,18 +8,18 @@ import { Box } from '@material-ui/core'
 function App() {
   return (
     <>
-      <Header />
       <Box pt="10rem" pb="2rem">
         <Router>
+          <Header />
           <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
             <Route path="/login">
               <LoginPage />
             </Route>
             <Route path="/novo-usuario">
               <CreateUserPage />
-            </Route>
-            <Route path="/" exact={true}>
-              <HomePage />
             </Route>
           </Switch>
         </Router>
