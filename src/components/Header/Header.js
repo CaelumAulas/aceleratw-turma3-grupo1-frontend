@@ -35,7 +35,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            CARANGO BOM
+            Carango Bom
           </Typography>
           <Box pr={2}>
             <p>Boas vindas, fulano</p>
