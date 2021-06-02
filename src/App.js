@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <Box pt="8rem">
+      <Box pt="10rem">
         <Router>
           <Switch>
             <Route path="/">
