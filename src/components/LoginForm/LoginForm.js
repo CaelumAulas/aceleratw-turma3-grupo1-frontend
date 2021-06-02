@@ -43,7 +43,6 @@ export default function LoginForm({ onChange, onSubmit }) {
         required
         helperText={errors.user.text}
         value={formData.user}
-        required
         onChange={event => updateFieldValue(event, 'user')}
       />
       <TextField
@@ -53,7 +52,6 @@ export default function LoginForm({ onChange, onSubmit }) {
         name="password"
         label="Senha"
         type="password"
-        required
         value={formData.password}
         helperText={errors.password.text}
         onChange={event => updateFieldValue(event, 'password')}

@@ -11,6 +11,8 @@ import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
 export default function LoginPage() {
   const [formData, setFormData] = useState({})
 
+  console.log(formData)
+
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
