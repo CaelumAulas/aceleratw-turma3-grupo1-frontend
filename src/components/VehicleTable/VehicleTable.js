@@ -7,9 +7,9 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import React from 'react'
 
-export default function VehicleTable() {
+export default function VehicleTable({ vehicles }) {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={3}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -17,19 +17,19 @@ export default function VehicleTable() {
             <TableCell>Modelo</TableCell>
             <TableCell>Ano</TableCell>
             <TableCell>Valor</TableCell>
-            <TableCell align="right">Ações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell component="th" scope="row">
-              Ford
-            </TableCell>
-            <TableCell>Ka Sedan</TableCell>
-            <TableCell>2020</TableCell>
-            <TableCell>R$ 20.000</TableCell>
-            <TableCell align="right"></TableCell>
-          </TableRow>
+          {vehicles.map(vehicle => (
+            <TableRow hover>
+              <TableCell component="th" scope="row">
+                {vehicle.brand}
+              </TableCell>
+              <TableCell>{vehicle.model}</TableCell>
+              <TableCell>{vehicle.year}</TableCell>
+              <TableCell>{vehicle.price}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

@@ -8,13 +8,13 @@ function App() {
   return (
     <>
       <Header />
-      <Box pt="10rem">
+      <Box pt="10rem" pb="2rem">
         <Router>
           <Switch>
             <Route path="/login">
               <LoginPage />
             </Route>
-            <Route path="/">
+            <Route path="/" exact={true}>
               <HomePage />
             </Route>
           </Switch>
