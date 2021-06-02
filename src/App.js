@@ -1,5 +1,6 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
+import CreateUserPage from './pages/CreateUserPage'
 import HomePage from './pages/HomePage'
 import Header from './components/Header/Header'
 import { Box } from '@material-ui/core'
@@ -13,6 +14,9 @@ function App() {
           <Switch>
             <Route path="/login">
               <LoginPage />
+            </Route>
+            <Route path="/novo-usuario">
+              <CreateUserPage />
             </Route>
             <Route path="/" exact={true}>
               <HomePage />
