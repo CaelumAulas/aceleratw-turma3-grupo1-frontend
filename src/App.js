@@ -10,7 +10,7 @@ function App() {
       <Box pt="8rem">
         <Router>
           <Switch>
-            <Route path="/login">
+            <Route path="/">
               <LoginPage />
             </Route>
           </Switch>
