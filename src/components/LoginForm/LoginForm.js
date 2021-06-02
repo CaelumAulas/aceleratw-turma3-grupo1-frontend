@@ -22,14 +22,15 @@ export default function LoginForm({ onChange, onSubmit }) {
   }
 
   const context = useContext(UserFlowValidations)
-  const [errors, validateFields, isFormValid] = useFormValidators(context)
+  const [errors, validateFormField, isFormValid, validateForm] =
+    useFormValidators(context)
   return (
     <form
-      noValidate
       autoComplete="off"
       onSubmit={event => {
         event.preventDefault()
-        onSubmit(formData)
+        validateForm(formData)
+        if (isFormValid()) onSubmit(formData)
       }}
     >
       <TextField
@@ -37,20 +38,22 @@ export default function LoginForm({ onChange, onSubmit }) {
         margin="dense"
         name="user"
         label="Usuário"
-        onBlur={validateFields}
+        onBlur={validateFormField}
         fullWidth
         required
         helperText={errors.user.text}
         value={formData.user}
+        required
         onChange={event => updateFieldValue(event, 'user')}
       />
       <TextField
         variant="standard"
         margin="dense"
-        onBlur={validateFields}
+        onBlur={validateFormField}
         name="password"
         label="Senha"
         type="password"
+        required
         value={formData.password}
         helperText={errors.password.text}
         onChange={event => updateFieldValue(event, 'password')}
@@ -75,8 +78,8 @@ export default function LoginForm({ onChange, onSubmit }) {
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="warning">
-            Necessário corrigir os erros antes de enviar.
+          <Alert severity="info">
+            Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}
       </Box>

@@ -1,7 +1,7 @@
 import { Box, Paper, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import React, { useState } from 'react'
-import RegisterUserForm from '../components/RegisterUserForm/RegisterUserForm'
+import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
 import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
 import {
   validatePassword,

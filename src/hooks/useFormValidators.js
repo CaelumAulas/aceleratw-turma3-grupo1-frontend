@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 function useFormValidators(validationsContext) {
   const initialState = generateInitialState(validationsContext)
   const [errors, setFormErrors] = useState(initialState)
 
-  function validateFields(event) {
+  function validateFormField(event) {
     const { name, value } = event.target
     const newState = { ...errors }
     newState[name] = validationsContext[name](value)
@@ -20,7 +20,15 @@ function useFormValidators(validationsContext) {
     return true
   }
 
-  return [errors, validateFields, isFormValid]
+  function validateForm(formValues) {
+    const formValidations = {}
+    for (let campo in validationsContext) {
+      formValidations[campo] = validationsContext[campo](formValues[campo])
+    }
+    setFormErrors({ ...errors, ...formValidations })
+  }
+
+  return [errors, validateFormField, isFormValid, validateForm]
 }
 
 function generateInitialState(validations) {

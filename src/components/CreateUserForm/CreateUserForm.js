@@ -21,15 +21,16 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
     onChange(formData)
   }
 
-  const context = useContext(UserFlowFormValidations)
-  const [errors, validateFields, isFormValid] = useFormValidators(context)
+  const formValidations = useContext(UserFlowFormValidations)
+  const [errors, validateFormField, isFormValid, validateForm] =
+    useFormValidators(formValidations)
   return (
     <form
-      noValidate
       autoComplete="off"
       onSubmit={event => {
         event.preventDefault()
-        onSubmit(formData)
+        validateForm(formData)
+        if (isFormValid()) onSubmit(formData)
       }}
     >
       <TextField
@@ -37,7 +38,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
         margin="dense"
         name="user"
         label="Usuário"
-        onBlur={validateFields}
+        onBlur={validateFormField}
         fullWidth
         required
         value={formData.user}
@@ -47,7 +48,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       <TextField
         variant="standard"
         margin="dense"
-        onBlur={validateFields}
+        onBlur={validateFormField}
         name="password"
         label="Senha"
         type="password"
@@ -60,7 +61,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       <TextField
         variant="standard"
         margin="dense"
-        onBlur={validateFields}
+        onBlur={validateFormField}
         name="passwordConfirmation"
         label="Confirmação de senha"
         type="password"
@@ -82,8 +83,8 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="warning">
-            Necessário corrigir os erros antes de enviar.
+          <Alert severity="info">
+            Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}
       </Box>

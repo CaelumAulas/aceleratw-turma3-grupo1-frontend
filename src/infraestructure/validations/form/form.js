@@ -15,7 +15,6 @@ export function validatePassword(password) {
 }
 
 export function validatePasswordConfirmation(password, passwordConfirmation) {
-  console.log(password, passwordConfirmation)
   if (password !== passwordConfirmation) {
     return {
       isValid: false,
