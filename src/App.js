@@ -1,15 +1,22 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
+import Header from './components/Header/Header'
+import { Box } from '@material-ui/core'
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <Header />
+      <Box pt="8rem">
+        <Router>
+          <Switch>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+          </Switch>
+        </Router>
+      </Box>
+    </>
   )
 }
 
