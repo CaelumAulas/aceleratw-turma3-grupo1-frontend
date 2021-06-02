@@ -12,9 +12,9 @@ export default function LoginPage() {
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
-        <Box p={2}>
+        <Box p={3}>
           <Box mb="0.5rem" mt="0.5rem">
-            <Typography variant="h5" align="center" component="h2">
+            <Typography variant="h5" component="h2">
               Acesse o Carango Bom
             </Typography>
           </Box>
