@@ -1,10 +1,10 @@
-import Container from "@material-ui/core/Container";
-import React from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { Box, Typography } from "@material-ui/core";
+import Container from '@material-ui/core/Container'
+import React from 'react'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { Box, Typography } from '@material-ui/core'
 
-export function LoginPage() {
+export default function LoginPage() {
   return (
     <>
       <Container maxWidth="xs">
@@ -35,5 +35,5 @@ export function LoginPage() {
         </form>
       </Container>
     </>
-  );
+  )
 }

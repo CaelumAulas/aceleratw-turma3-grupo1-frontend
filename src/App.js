@@ -1,9 +1,16 @@
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+
 function App() {
   return (
-    <div className="App">
-      Projeto Carango Bom
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
