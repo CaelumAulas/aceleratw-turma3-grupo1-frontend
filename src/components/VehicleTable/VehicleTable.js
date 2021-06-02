@@ -23,11 +23,11 @@ export default function VehicleTable({
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell width="20%">Marca</TableCell>
-            <TableCell width="30%">Modelo</TableCell>
-            <TableCell width="10%">Ano</TableCell>
-            <TableCell width="20%">Valor</TableCell>
-            <TableCell width="20%"></TableCell>
+            <TableCell width="30%">Marca</TableCell>
+            <TableCell width="40%">Modelo</TableCell>
+            <TableCell width="5%">Ano</TableCell>
+            <TableCell width="10%">Valor</TableCell>
+            <TableCell width="15%"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -1,9 +1,12 @@
+import { Box, Paper, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { Box, Paper, Typography } from '@material-ui/core'
-import Link from '@material-ui/core/Link'
+import LoginForm from '../components/LoginForm/LoginForm'
+import {
+  validatePassword,
+  validateUser,
+} from '../components/LoginForm/LoginForm.rules'
+import LoginFormValidations from '../contexts/LoginFormValidations'
 
 export default function LoginPage() {
   return (
@@ -15,34 +18,14 @@ export default function LoginPage() {
               Acesse o Carango Bom
             </Typography>
           </Box>
-          <form noValidate autoComplete="off">
-            <TextField
-              variant="standard"
-              margin="dense"
-              label="Usuário"
-              fullWidth
-              required
-            />
-            <TextField
-              variant="standard"
-              margin="dense"
-              label="Senha"
-              type="password"
-              fullWidth
-              required
-            />
-            <Box mt={4} display="flex" justifyContent="space-between">
-              <Button variant="contained" color="secondary">
-                Fazer Login
-              </Button>
-              <p>
-                ou{' '}
-                <Link href="#" onClick={() => {}}>
-                  Cadastre-se
-                </Link>
-              </p>
-            </Box>
-          </form>
+          <LoginFormValidations.Provider
+            value={{
+              user: validateUser,
+              password: validatePassword,
+            }}
+          >
+            <LoginForm />
+          </LoginFormValidations.Provider>
         </Box>
       </Paper>
     </Container>
