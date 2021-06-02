@@ -3,11 +3,24 @@ import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
-import React, { useContext } from 'react'
-import LoginFormValidations from '../../contexts/LoginFormValidations'
+import React, { useContext, useState } from 'react'
+import UserFlowValidations from '../../contexts/UserFlowFormValidations'
 import useFormValidators from '../../hooks/useFormValidators'
-export default function LoginForm() {
-  const context = useContext(LoginFormValidations)
+export default function LoginForm({ onChange, onSubmit }) {
+  const [formData, setFormData] = useState({
+    user: '',
+    password: '',
+  })
+
+  function updateFieldValue(event, field) {
+    setFormData({
+      ...formData,
+      [field]: event.target.value,
+    })
+    onChange(formData)
+  }
+
+  const context = useContext(UserFlowValidations)
   const [errors, validateFields, isFormValid] = useFormValidators(context)
   return (
     <form
@@ -15,6 +28,7 @@ export default function LoginForm() {
       autoComplete="off"
       onSubmit={event => {
         event.preventDefault()
+        onSubmit(formData)
       }}
     >
       <TextField
@@ -26,6 +40,8 @@ export default function LoginForm() {
         fullWidth
         required
         helperText={errors.user.text}
+        value={formData.user}
+        onChange={event => updateFieldValue(event, 'user')}
       />
       <TextField
         variant="standard"
@@ -34,7 +50,9 @@ export default function LoginForm() {
         name="password"
         label="Senha"
         type="password"
+        value={formData.password}
         helperText={errors.password.text}
+        onChange={event => updateFieldValue(event, 'password')}
         fullWidth
         required
       />

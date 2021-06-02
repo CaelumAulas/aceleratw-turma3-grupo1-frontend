@@ -2,12 +2,26 @@ import { Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
-import React, { useContext } from 'react'
-import LoginFormValidations from '../../contexts/LoginFormValidations'
+import React, { useContext, useState } from 'react'
+import UserFlowFormValidations from '../../contexts/UserFlowFormValidations'
 import useFormValidators from '../../hooks/useFormValidators'
 
-export default function RegisterUserForm() {
-  const context = useContext(LoginFormValidations)
+export default function RegisterUserForm({ onSubmit, onChange }) {
+  const [formData, setFormData] = useState({
+    user: '',
+    password: '',
+    passwordConfirmation: '',
+  })
+
+  function updateFieldValue(event, field) {
+    setFormData({
+      ...formData,
+      [field]: event.target.value,
+    })
+    onChange(formData)
+  }
+
+  const context = useContext(UserFlowFormValidations)
   const [errors, validateFields, isFormValid] = useFormValidators(context)
   return (
     <form
@@ -15,6 +29,7 @@ export default function RegisterUserForm() {
       autoComplete="off"
       onSubmit={event => {
         event.preventDefault()
+        onSubmit(formData)
       }}
     >
       <TextField
@@ -25,7 +40,9 @@ export default function RegisterUserForm() {
         onBlur={validateFields}
         fullWidth
         required
+        value={formData.user}
         helperText={errors.user.text}
+        onChange={event => updateFieldValue(event, 'user')}
       />
       <TextField
         variant="standard"
@@ -34,7 +51,9 @@ export default function RegisterUserForm() {
         name="password"
         label="Senha"
         type="password"
+        value={formData.password}
         helperText={errors.password.text}
+        onChange={event => updateFieldValue(event, 'password')}
         fullWidth
         required
       />
@@ -42,10 +61,12 @@ export default function RegisterUserForm() {
         variant="standard"
         margin="dense"
         onBlur={validateFields}
-        name="password"
+        name="passwordConfirmation"
         label="Confirmação de senha"
         type="password"
-        helperText={errors.password.text}
+        value={formData.passwordConfirmation}
+        helperText={errors.passwordConfirmation.text}
+        onChange={event => updateFieldValue(event, 'passwordConfirmation')}
         fullWidth
         required
       />

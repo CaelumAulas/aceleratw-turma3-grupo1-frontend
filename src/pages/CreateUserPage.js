@@ -1,14 +1,16 @@
 import { Box, Paper, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React from 'react'
+import React, { useState } from 'react'
 import RegisterUserForm from '../components/RegisterUserForm/RegisterUserForm'
+import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
 import {
   validatePassword,
+  validatePasswordConfirmation,
   validateUser,
-} from '../components/LoginForm/LoginForm.rules'
-import LoginFormValidations from '../contexts/LoginFormValidations'
+} from '../infraestructure/validations/form/form'
 
 export default function CreateUserPage() {
+  const [formData, setFormData] = useState({})
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
@@ -22,14 +24,22 @@ export default function CreateUserPage() {
               Preencha com seu usuário, e uma senha forte.
             </p>
           </Box>
-          <LoginFormValidations.Provider
+          <UserFlowFormValidations.Provider
             value={{
               user: validateUser,
               password: validatePassword,
+              passwordConfirmation: passwordConfirmation =>
+                validatePasswordConfirmation(
+                  formData?.password,
+                  passwordConfirmation,
+                ),
             }}
           >
-            <RegisterUserForm />
-          </LoginFormValidations.Provider>
+            <RegisterUserForm
+              onChange={formData => setFormData(formData)}
+              onSubmit={data => console.log(data)}
+            />
+          </UserFlowFormValidations.Provider>
         </Box>
       </Paper>
     </Container>

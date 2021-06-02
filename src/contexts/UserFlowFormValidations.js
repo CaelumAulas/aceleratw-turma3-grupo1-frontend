@@ -1,11 +1,12 @@
 import { createContext } from 'react'
 
-const LoginFormValidations = createContext({
+const UserFlowFormValidations = createContext({
   user: noValidation,
   password: noValidation,
+  passwordConfirmation: noValidation,
 })
 
 function noValidation(dados) {
   return { isValid: true, text: '' }
 }
-export default LoginFormValidations
+export default UserFlowFormValidations

@@ -1,14 +1,16 @@
 import { Box, Paper, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React from 'react'
+import React, { useState } from 'react'
 import LoginForm from '../components/LoginForm/LoginForm'
 import {
   validatePassword,
   validateUser,
-} from '../components/LoginForm/LoginForm.rules'
-import LoginFormValidations from '../contexts/LoginFormValidations'
+} from '../infraestructure/validations/form/form'
+import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
 
 export default function LoginPage() {
+  const [formData, setFormData] = useState({})
+
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
@@ -18,14 +20,17 @@ export default function LoginPage() {
               Acesse o Carango Bom
             </Typography>
           </Box>
-          <LoginFormValidations.Provider
+          <UserFlowFormValidations.Provider
             value={{
               user: validateUser,
               password: validatePassword,
             }}
           >
-            <LoginForm />
-          </LoginFormValidations.Provider>
+            <LoginForm
+              onChange={formData => setFormData(formData)}
+              onSubmit={data => console.log(data)}
+            />
+          </UserFlowFormValidations.Provider>
         </Box>
       </Paper>
     </Container>
