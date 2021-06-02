@@ -83,7 +83,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="info">
+          <Alert severity="warning">
             Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}

@@ -77,7 +77,7 @@ export default function LoginForm({ onChange, onSubmit }) {
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="info">
+          <Alert severity="warning">
             Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}
