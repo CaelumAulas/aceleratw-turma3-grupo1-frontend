@@ -6,6 +6,7 @@ import Alert from '@material-ui/lab/Alert'
 import React, { useContext, useState } from 'react'
 import UserFlowValidations from '../../contexts/UserFlowFormValidations'
 import useFormValidators from '../../hooks/useFormValidators'
+
 export default function LoginForm({ onChange, onSubmit }) {
   const [formData, setFormData] = useState({
     user: '',
@@ -67,7 +68,7 @@ export default function LoginForm({ onChange, onSubmit }) {
         </Button>
         <p>
           ou{' '}
-          <Link href="#" onClick={() => {}}>
+          <Link href="/novo-usuario" onClick={() => {}}>
             Cadastre-se {context.olar}
           </Link>
         </p>
