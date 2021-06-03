@@ -6,19 +6,21 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { formatToCurrency } from '../../infraestructure/currency'
+import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
 
 export default function BrandCard({ brand, totalVehicles, amount }) {
   return (
-    <Box mr={2}>
-      <Card>
+    <Box mr={2} mb={2}>
+      <Card style={{ width: '250px' }}>
         <CardContent>
-          <Typography
-            variant="h5"
-            component="h2"
-            color="textSecondary"
-            gutterBottom
-          >
-            {brand}
+          <Box mb={5}>
+            <DriveEtaOutlinedIcon color="primary" />
+            <Typography variant="h4" component="h1" gutterBottom>
+              {brand}
+            </Typography>
+          </Box>
+          <Typography variant="body2" component="p" color="textSecondary">
+            Total de
           </Typography>
           <Typography variant="h5" component="h2">
             {totalVehicles} {totalVehicles === 1 ? 'Veículo' : 'Veículos'}
@@ -28,7 +30,15 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Ver Veículos</Button>
+          <Button
+            fullWidth
+            variant="contained"
+            color="secondary"
+            colorhov
+            disableElevation
+          >
+            Ver Todos
+          </Button>
         </CardActions>
       </Card>
     </Box>
