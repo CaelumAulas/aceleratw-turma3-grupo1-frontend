@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import CreateUserPage from '../../pages/CreateUserPage'
 import HomePage from '../../pages/HomePage'
 import LoginPage from '../../pages/LoginPage'
+import DashboardPage from '../../pages/DashboardPage'
 import Header from '../Header/Header'
 
 export default function AppRouter() {
@@ -19,6 +20,9 @@ export default function AppRouter() {
           </Route>
           <Route path="/novo-usuario">
             <CreateUserPage />
+          </Route>
+          <Route path="/dashboard">
+            <DashboardPage />
           </Route>
         </Switch>
       </Box>

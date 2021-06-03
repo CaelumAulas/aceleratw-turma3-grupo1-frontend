@@ -26,14 +26,14 @@ export default function Header() {
     <>
       <AppBar position="fixed" color="primary">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
             <Link component={NavLink} to="/" color="inherit">
               Carango Bom
@@ -45,6 +45,11 @@ export default function Header() {
           <Box p={1}>
             <Link component={NavLink} to="/login" color="inherit">
               Entrar
+            </Link>
+          </Box>
+          <Box p={1}>
+            <Link component={NavLink} to="/dashboard" color="inherit">
+              Dashboard
             </Link>
           </Box>
           <Box p={1}>
