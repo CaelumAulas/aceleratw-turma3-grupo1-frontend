@@ -57,6 +57,11 @@ export default function Header() {
               Veículos
             </Link>
           </Box>
+          <Box p={1}>
+            <Link component={NavLink} to="/novo-veiculo" color="inherit">
+              Novo veículo
+            </Link>
+          </Box>
         </Toolbar>
       </AppBar>
     </>

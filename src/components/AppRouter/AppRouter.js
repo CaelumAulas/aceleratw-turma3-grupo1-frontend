@@ -5,6 +5,7 @@ import HomePage from '../../pages/HomePage'
 import LoginPage from '../../pages/LoginPage'
 import DashboardPage from '../../pages/DashboardPage'
 import Header from '../Header/Header'
+import CreateVehiclePage from '../../pages/CreateVehiclePage'
 
 export default function AppRouter() {
   return (
@@ -23,6 +24,9 @@ export default function AppRouter() {
           </Route>
           <Route path="/dashboard">
             <DashboardPage />
+          </Route>
+          <Route path="/novo-veiculo">
+            <CreateVehiclePage />
           </Route>
         </Switch>
       </Box>
