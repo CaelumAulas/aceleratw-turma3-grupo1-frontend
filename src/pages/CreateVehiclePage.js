@@ -1,6 +1,12 @@
 import { Box, Container, Paper, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
 import CreateVehicleForm from '../components/CreateVehicleForm/CreateVehicleForm'
+import VehicleFlowFormValidations from '../contexts/VehicleFlowFormValidation'
+import {
+  validateCarBrand,
+  validateCarModel,
+  validateCarYear,
+} from '../infraestructure/validations/form/form'
 
 export default function CreateVehiclePage() {
   const [formData, setFormData] = useState({})
@@ -18,10 +24,18 @@ export default function CreateVehiclePage() {
             <p></p>
           </Box>
 
-          <CreateVehicleForm
-            onChange={formData => setFormData(formData)}
-            onSubmit={data => console.log(data)}
-          />
+          <VehicleFlowFormValidations.Provider
+            value={{
+              brand: validateCarBrand,
+              year: validateCarYear,
+              model: validateCarModel,
+            }}
+          >
+            <CreateVehicleForm
+              onChange={formData => setFormData(formData)}
+              onSubmit={data => console.log(data)}
+            />
+          </VehicleFlowFormValidations.Provider>
         </Box>
       </Paper>
     </Container>

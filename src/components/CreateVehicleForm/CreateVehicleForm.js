@@ -1,17 +1,24 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
-import React, { useState } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@material-ui/core'
+import React, { useState, useContext } from 'react'
+import VehicleFlowFormValidations from '../../contexts/VehicleFlowFormValidation'
+import useFormValidators from '../../hooks/useFormValidators'
 
-export default function CreateVehicleForm({onChange, onSubmit}) {
-  
+export default function CreateVehicleForm({ onChange, onSubmit }) {
   const [formData, setFormData] = useState({
     brand: '',
     model: '',
     year: '2021',
-    price:'0'
+    price: '0',
   })
-  
-  //console.log(formData)
-  
+
   const brands = ['Fiat', 'Jeep', 'Ford']
 
   function updateFieldValue(event, field) {
@@ -22,11 +29,18 @@ export default function CreateVehicleForm({onChange, onSubmit}) {
     onChange(formData)
   }
 
+  const formValidations = useContext(VehicleFlowFormValidations)
+  const [errors, validateFormField, isFormValid, validateForm] =
+    useFormValidators(formValidations)
+
   return (
-    <form onSubmit={(e) => { 
-      e.preventDefault()
-      onSubmit(formData)
-    }}>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        validateForm(formData)
+        if (isFormValid()) onSubmit(formData)
+      }}
+    >
       <FormControl fullWidth>
         <InputLabel htmlFor="brand">Selecione uma marca</InputLabel>
         <Select
@@ -37,9 +51,12 @@ export default function CreateVehicleForm({onChange, onSubmit}) {
           }}
           value={formData.brand}
           onChange={e => updateFieldValue(e, 'brand')}
+          required
         >
           {brands.map((brand, index) => (
-            <MenuItem value={brand} key={index}> {brand} </MenuItem>
+            <MenuItem value={brand} key={index}>
+              {brand}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
@@ -53,6 +70,8 @@ export default function CreateVehicleForm({onChange, onSubmit}) {
         required
         value={formData.model}
         onChange={e => updateFieldValue(e, 'model')}
+        onBlur={validateFormField}
+        helperText={errors.model.text}
       />
 
       <TextField
@@ -65,13 +84,16 @@ export default function CreateVehicleForm({onChange, onSubmit}) {
         required
         value={formData.year}
         onChange={e => updateFieldValue(e, 'year')}
+        onBlur={validateFormField}
+        helperText={errors.year.text}
       />
 
       <TextField
         variant="standard"
         margin="dense"
         name="price"
-        type="money"
+        type="number"
+        inputProps={{ min: 0 }}
         label="Valor"
         fullWidth
         required
