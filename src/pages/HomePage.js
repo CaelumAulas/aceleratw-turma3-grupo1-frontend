@@ -1,6 +1,7 @@
-import { Box, Typography } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import React from 'react'
+import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleTable from '../components/VehicleTable/VehicleTable'
 
 export default function HomePage() {
@@ -338,9 +339,7 @@ export default function HomePage() {
   ]
   return (
     <Container maxWidth="lg">
-      <Typography variant="h5" component="h1">
-        Veículos disponíveis para compra
-      </Typography>
+      <PageTitle title="Veículos disponíveis para compra" />
       <Box mt={4}>
         <VehicleTable
           vehicles={data}

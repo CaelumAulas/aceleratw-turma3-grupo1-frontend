@@ -2,6 +2,7 @@ import { Box, Paper, Typography } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import React, { useState } from 'react'
 import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
+import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
 import {
   validatePassword,
@@ -16,9 +17,7 @@ export default function CreateUserPage() {
       <Paper elevation={3}>
         <Box p={3}>
           <Box mb="0.5rem" mt="0.5rem">
-            <Typography variant="h5" component="h2">
-              Registre-se
-            </Typography>
+            <PageTitle title="Registre-se" />
             <p>
               Ficamos felizes com seu interesse em se registrar no Carango Bom.
               Preencha com seu usuário, e uma senha forte.

@@ -1,16 +1,14 @@
 import { Box } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import BrandCard from '../components/BrandCard/BrandCard'
+import PageTitle from '../components/PageTitle/PageTitle'
 
 export default function DashboardPage() {
   return (
     <>
       <Container maxWidth="lg">
-        <Typography variant="h5" component="h2" gutterBottom>
-          Dashboard
-        </Typography>
+        <PageTitle title="Dashboard" />
         <Box display="flex" flexWrap="wrap">
           <BrandCard brand="Chevrolet" totalVehicles={28} amount={27617000} />
           <BrandCard brand="Ford" totalVehicles={8} amount={2579800} />

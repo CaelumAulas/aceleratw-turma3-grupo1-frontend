@@ -1,6 +1,7 @@
-import { Box, Container, Paper, Typography } from '@material-ui/core'
+import { Box, Container, Paper } from '@material-ui/core'
 import React, { useState } from 'react'
 import CreateVehicleForm from '../components/CreateVehicleForm/CreateVehicleForm'
+import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleFlowFormValidations from '../contexts/VehicleFlowFormValidation'
 import {
   validateCarBrand,
@@ -17,12 +18,7 @@ export default function CreateVehiclePage() {
     <Container maxWidth="xs">
       <Paper elevation={3}>
         <Box p={3}>
-          <Box mb="0.5rem" mt="0.5rem">
-            <Typography variant="h5" component="h2">
-              Cadastre um novo veículo
-            </Typography>
-            <p></p>
-          </Box>
+          <PageTitle title="Cadastre um novo veículo" />
 
           <VehicleFlowFormValidations.Provider
             value={{
