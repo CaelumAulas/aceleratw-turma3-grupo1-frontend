@@ -11,7 +11,7 @@ import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
 export default function BrandCard({ brand, totalVehicles, amount }) {
   return (
     <Box mr={2} mb={2}>
-      <Card variant="outlined" style={{ width: '250px' }}>
+      <Card style={{ width: '250px' }}>
         <CardContent>
           <Box mb={5}>
             <DriveEtaOutlinedIcon color="primary" />
