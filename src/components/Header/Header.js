@@ -1,11 +1,12 @@
-import { Box } from '@material-ui/core'
-import AppBar from '@material-ui/core/AppBar'
+import { AppBar, Box, Link as MaterialLink } from '@material-ui/core'
 import Link from '@material-ui/core/Link'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link as NavLink } from 'react-router-dom'
+import UserLogged from '../../contexts/UserLogged'
+import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function Header() {
   const useStyles = makeStyles(theme => ({
@@ -19,6 +20,7 @@ export default function Header() {
       flexGrow: 1,
     },
   }))
+  const userLoggedContext = useContext(UserLogged)
   const classes = useStyles()
   return (
     <>
@@ -29,19 +31,25 @@ export default function Header() {
               Carango Bom
             </Link>
           </Typography>
-          <Box pr={2}>
-            <p>Boas vindas, fulano</p>
-          </Box>
-          <Box p={1}>
-            <Link component={NavLink} to="/login" color="inherit">
-              Entrar
-            </Link>
-          </Box>
-          <Box p={1}>
-            <Link component={NavLink} to="/dashboard" color="inherit">
-              Dashboard
-            </Link>
-          </Box>
+          <UserLoggedContent>
+            <Box pr={1}>
+              <p>Boas vindas, {userLoggedContext.name}</p>
+            </Box>
+          </UserLoggedContent>
+          {!userLoggedContext.user && (
+            <Box p={1}>
+              <Link component={NavLink} to="/login" color="inherit">
+                Entrar
+              </Link>
+            </Box>
+          )}
+          <UserLoggedContent>
+            <Box p={1}>
+              <Link component={NavLink} to="/dashboard" color="inherit">
+                Dashboard
+              </Link>
+            </Box>
+          </UserLoggedContent>
           <Box p={1}>
             <Link component={NavLink} to="/" color="inherit">
               Veículos
@@ -52,6 +60,18 @@ export default function Header() {
               Novo veículo
             </Link>
           </Box>
+          <UserLoggedContent>
+            <Box p={1}>
+              <MaterialLink
+                onClick={() => {
+                  userLoggedContext.update(null, null)
+                }}
+                color="white"
+              >
+                Sair
+              </MaterialLink>
+            </Box>
+          </UserLoggedContent>
         </Toolbar>
       </AppBar>
     </>

@@ -1,11 +1,12 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm'
 import Modal from '../components/Modal/Modal'
 import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
+import UserLogged from '../contexts/UserLogged'
 import ApiLogin from '../infraestructure/api/ApiLogin'
 import {
   validatePassword,
@@ -20,6 +21,7 @@ export default function LoginPage() {
     description: 'Tente novamente mais tarde.',
   })
   const [showModal, setShowModal] = useState(false)
+  const userLoggedContext = useContext(UserLogged)
 
   async function callApiLogin() {
     try {
@@ -27,10 +29,10 @@ export default function LoginPage() {
         user: formData.user,
         password: formData.password,
       })
-      response.data.logado = false
       const { data } = response
       if (data.logado) {
         history.push('/')
+        userLoggedContext.update('acelera-grupo-1', 'Grupo 1')
       } else {
         setShowModal(true)
       }
