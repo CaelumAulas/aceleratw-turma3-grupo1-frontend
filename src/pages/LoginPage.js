@@ -1,9 +1,10 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoginForm from '../components/LoginForm/LoginForm'
 import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
+import ApiLogin from '../infraestructure/api/ApiLogin'
 import {
   validatePassword,
   validateUser,
@@ -13,6 +14,13 @@ export default function LoginPage() {
   const [formData, setFormData] = useState({})
 
   console.log(formData)
+
+  useEffect(() => {
+    async function getApiLogin() {
+      await ApiLogin()
+    }
+    console.log(await getApiLogin())
+  }, [])
 
   return (
     <Container maxWidth="xs">
