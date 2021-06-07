@@ -12,14 +12,12 @@ import {
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({})
-
+  const [login, setLogin] = useState({})
   console.log(formData)
 
   useEffect(() => {
-    async function getApiLogin() {
-      await ApiLogin()
-    }
-    console.log(await getApiLogin())
+    ApiLogin(setLogin)
+    console.log(login)
   }, [])
 
   return (
