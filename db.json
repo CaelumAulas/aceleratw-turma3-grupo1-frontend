@@ -1,5 +1,8 @@
 {
   "login": {
     "logado": true
-  } 
+  },
+    "loginFail": {
+    "logado": false
+  }
 }

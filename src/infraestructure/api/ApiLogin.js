@@ -1,8 +1,5 @@
-import axios from 'axios'
+import { api } from './Api'
 
-const api = axios.create({ baseURL: 'http://localhost:5000' })
-
-export default async function ApiLogin() {
-  const request = await api.get('login')
-  return request;
+export default async function ApiLogin({ user, password }) {
+  return await api.get('login', { user, password })
 }

@@ -1,6 +1,7 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm'
 import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
@@ -11,19 +12,25 @@ import {
 } from '../infraestructure/validations/form/form'
 
 export default function LoginPage() {
+  const history = useHistory()
   const [formData, setFormData] = useState({})
-  const [login, setLogin] = useState({})
-  console.log(formData)
 
-  useEffect(() => {
-    async function getApiLogin() {
-      let response = await ApiLogin()
-      response = response.data
-      setLogin(response)
+  async function callApiLogin() {
+    try {
+      const response = await ApiLogin({
+        user: formData.user,
+        password: formData.password,
+      })
+      const { data } = response
+      if (data.logado) {
+        history.push('/')
+      } else {
+        alert('não foi possivel logar')
+      }
+    } catch (e) {
+      alert('não foi possivel logar')
     }
-    getApiLogin()
-    console.log(login)
-  }, [])
+  }
 
   return (
     <Container maxWidth="xs">
@@ -38,7 +45,7 @@ export default function LoginPage() {
           >
             <LoginForm
               onChange={formData => setFormData(formData)}
-              onSubmit={data => console.log(data)}
+              onSubmit={callApiLogin}
             />
           </UserFlowFormValidations.Provider>
         </Box>
