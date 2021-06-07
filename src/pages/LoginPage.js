@@ -16,7 +16,12 @@ export default function LoginPage() {
   console.log(formData)
 
   useEffect(() => {
-    ApiLogin(setLogin)
+    async function getApiLogin() {
+      let response = await ApiLogin()
+      response = response.data
+      setLogin(response)
+    }
+    getApiLogin()
     console.log(login)
   }, [])
 
