@@ -5,6 +5,7 @@ function getSavedValue(key, initialValue) {
   if (savedValue) return savedValue
 
   if (initialValue instanceof Function) return initialValue()
+
   return initialValue
 }
 

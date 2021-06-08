@@ -27,7 +27,6 @@ function App() {
   const [user, setUser] = useLocalStorage('user')
   const [userLoggedContext, setUserLoggedContext] = useState({
     user,
-    name: null,
     update,
   })
   return (
