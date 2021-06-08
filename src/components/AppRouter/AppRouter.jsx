@@ -21,9 +21,7 @@ export default function AppRouter() {
             <LoginPage />
           </Route>
           <Route path="/novo-usuario">
-            <UserRestrictedRoute>
-              <CreateUserPage />
-            </UserRestrictedRoute>
+            <CreateUserPage />
           </Route>
           <Route path="/dashboard">
             <UserRestrictedRoute>
