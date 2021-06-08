@@ -6,6 +6,7 @@ import LoginPage from '../../pages/LoginPage'
 import DashboardPage from '../../pages/DashboardPage'
 import Header from '../Header/Header'
 import CreateVehiclePage from '../../pages/CreateVehiclePage'
+import UserRestrictedRoute from '../UserRestrictedRoute/UserRestrictedRoute'
 
 export default function AppRouter() {
   return (
@@ -20,13 +21,19 @@ export default function AppRouter() {
             <LoginPage />
           </Route>
           <Route path="/novo-usuario">
-            <CreateUserPage />
+            <UserRestrictedRoute>
+              <CreateUserPage />
+            </UserRestrictedRoute>
           </Route>
           <Route path="/dashboard">
-            <DashboardPage />
+            <UserRestrictedRoute>
+              <DashboardPage />
+            </UserRestrictedRoute>
           </Route>
           <Route path="/novo-veiculo">
-            <CreateVehiclePage />
+            <UserRestrictedRoute>
+              <CreateVehiclePage />
+            </UserRestrictedRoute>
           </Route>
         </Switch>
       </Box>
