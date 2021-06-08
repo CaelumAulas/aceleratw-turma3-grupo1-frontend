@@ -10,64 +10,16 @@
       "price": 20000
     },
     {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
+      "brand": "Peugeot",
+      "model": "308",
+      "year": "2015",
+      "price": 13500
     },
     {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
+      "brand": "Volkswagen",
+      "model": "Gol",
+      "year": "2010",
+      "price": 120000
     }
   ]
 }
