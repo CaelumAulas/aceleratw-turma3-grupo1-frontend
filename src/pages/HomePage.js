@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleTable from '../components/VehicleTable/VehicleTable'
 import ApiListVehicles from '../infraestructure/api/ApiListVehicles'
+import ApiDeleteVehicle from '../infraestructure/api/ApiDeleteVehicle'
 
 export default function HomePage() {
   const [vehicles, setVehicles] = useState([])
@@ -19,6 +20,13 @@ export default function HomePage() {
     callApiListVehicles()
   }, [])
 
+  async function callApiDeleteVehicle(id) {
+    try {
+      const { data } = await ApiDeleteVehicle(id)
+      alert(data.code)
+    } catch (e) {}
+  }
+
   return (
     <Container maxWidth="lg">
       <PageTitle title="Veículos disponíveis para compra" />
@@ -26,9 +34,11 @@ export default function HomePage() {
         <VehicleTable
           vehicles={vehicles}
           onEditHandler={() => alert('Redicionar para a página de edição')}
-          onDeleteHandler={() =>
-            window.confirm('Tem certeza que deseja apagar este item?')
-          }
+          onDeleteHandler={async () => {
+            if (window.confirm('Tem certeza que deseja apagar este item?')) {
+              await callApiDeleteVehicle()
+            }
+          }}
         />
       </Box>
     </Container>

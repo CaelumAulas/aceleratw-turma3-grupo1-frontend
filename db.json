@@ -21,5 +21,8 @@
       "year": "2010",
       "price": 120000
     }
-  ]
+  ],
+  "deleteVehicle": {
+    "code": 200
+  }
 }
