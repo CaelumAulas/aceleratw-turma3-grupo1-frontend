@@ -31,8 +31,8 @@ export default function VehicleTable({
           </TableRow>
         </TableHead>
         <TableBody>
-          {vehicles.map(vehicle => (
-            <TableRow hover>
+          {vehicles.map((vehicle, index) => (
+            <TableRow hover key={index}>
               <TableCell component="th" scope="row">
                 {vehicle.brand}
               </TableCell>
