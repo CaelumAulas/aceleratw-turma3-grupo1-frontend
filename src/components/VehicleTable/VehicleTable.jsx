@@ -52,7 +52,7 @@ export default function VehicleTable({
                     <EditOutlinedIcon />
                   </IconButton>
                   <IconButton
-                    onClick={onDeleteHandler}
+                    onClick={() => onDeleteHandler(vehicle.id)}
                     color="inherit"
                     aria-label="Apagar item"
                   >

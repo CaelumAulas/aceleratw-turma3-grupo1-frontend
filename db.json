@@ -4,25 +4,11 @@
   },
   "veiculos": [
     {
-      "brand": "Ford",
-      "model": "Ka Sedan",
-      "year": "2020",
-      "price": 20000
-    },
-    {
+      "id": 2,
       "brand": "Peugeot",
       "model": "308",
       "year": "2015",
       "price": 13500
-    },
-    {
-      "brand": "Volkswagen",
-      "model": "Gol",
-      "year": "2010",
-      "price": 120000
     }
-  ],
-  "deleteVehicle": {
-    "code": 200
-  }
+  ]
 }

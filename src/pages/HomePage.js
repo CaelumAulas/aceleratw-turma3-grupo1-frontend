@@ -34,9 +34,9 @@ export default function HomePage() {
         <VehicleTable
           vehicles={vehicles}
           onEditHandler={() => alert('Redicionar para a página de edição')}
-          onDeleteHandler={async () => {
+          onDeleteHandler={async (id) => {
             if (window.confirm('Tem certeza que deseja apagar este item?')) {
-              await callApiDeleteVehicle()
+              await callApiDeleteVehicle(id)
             }
           }}
         />
