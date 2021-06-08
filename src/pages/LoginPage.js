@@ -16,10 +16,6 @@ import {
 export default function LoginPage() {
   const history = useHistory()
   const [formData, setFormData] = useState({})
-  const [modalErrors, setModalErrors] = useState({
-    title: 'Não foi possível logar',
-    description: 'Tente novamente mais tarde.',
-  })
   const [showModal, setShowModal] = useState(false)
   const userLoggedContext = useContext(UserLogged)
 
@@ -32,7 +28,7 @@ export default function LoginPage() {
       const { data } = response
       if (data.logado) {
         history.push('/')
-        userLoggedContext.update('acelera-grupo-1', 'Grupo 1')
+        userLoggedContext.update(formData.user)
       } else {
         setShowModal(true)
       }
@@ -44,8 +40,8 @@ export default function LoginPage() {
   return (
     <>
       <Modal
-        title={modalErrors.title}
-        description={modalErrors.description}
+        title={'Não foi possível logar'}
+        description={'Tente novamente mais tarde.'}
         open={showModal}
         onClose={() => setShowModal(false)}
       />

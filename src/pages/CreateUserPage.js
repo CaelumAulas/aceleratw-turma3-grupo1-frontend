@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from '@material-ui/core'
+import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
 import React, { useState } from 'react'
 import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
