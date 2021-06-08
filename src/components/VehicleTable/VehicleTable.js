@@ -10,6 +10,7 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
 import React from 'react'
 import { formatToCurrency } from '../../infraestructure/currency'
+import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function VehicleTable({
   vehicles = [],
@@ -27,7 +28,9 @@ export default function VehicleTable({
             <TableCell width="40%">Modelo</TableCell>
             <TableCell width="5%">Ano</TableCell>
             <TableCell width="10%">Valor</TableCell>
-            <TableCell width="15%"></TableCell>
+            <UserLoggedContent>
+              <TableCell width="15%">Ações</TableCell>
+            </UserLoggedContent>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -39,22 +42,24 @@ export default function VehicleTable({
               <TableCell>{vehicle.model}</TableCell>
               <TableCell>{vehicle.year}</TableCell>
               <TableCell>{formatToCurrency(vehicle.price)}</TableCell>
-              <TableCell>
-                <IconButton
-                  onClick={onEditHandler}
-                  color="inherit"
-                  aria-label="Editar item"
-                >
-                  <EditOutlinedIcon />
-                </IconButton>
-                <IconButton
-                  onClick={onDeleteHandler}
-                  color="inherit"
-                  aria-label="Apagar item"
-                >
-                  <DeleteOutlineIcon />
-                </IconButton>
-              </TableCell>
+              <UserLoggedContent>
+                <TableCell>
+                  <IconButton
+                    onClick={onEditHandler}
+                    color="inherit"
+                    aria-label="Editar item"
+                  >
+                    <EditOutlinedIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={onDeleteHandler}
+                    color="inherit"
+                    aria-label="Apagar item"
+                  >
+                    <DeleteOutlineIcon />
+                  </IconButton>
+                </TableCell>
+              </UserLoggedContent>
             </TableRow>
           ))}
         </TableBody>
