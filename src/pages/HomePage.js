@@ -22,8 +22,8 @@ export default function HomePage() {
 
   async function callApiDeleteVehicle(id) {
     try {
-      const { data } = await ApiDeleteVehicle(id)
-      alert(data.code)
+      await ApiDeleteVehicle(id)
+      callApiListVehicles()
     } catch (e) {}
   }
 
@@ -34,7 +34,7 @@ export default function HomePage() {
         <VehicleTable
           vehicles={vehicles}
           onEditHandler={() => alert('Redicionar para a página de edição')}
-          onDeleteHandler={async (id) => {
+          onDeleteHandler={async id => {
             if (window.confirm('Tem certeza que deseja apagar este item?')) {
               await callApiDeleteVehicle(id)
             }
