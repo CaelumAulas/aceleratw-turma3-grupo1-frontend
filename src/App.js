@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { useState } from 'react'
 import AppRouter from './components/AppRouter/AppRouter'
 import UserLogged from './contexts/UserLogged'
+import useLocalStorage from './hooks/useLocalStorage'
 
 const theme = createMuiTheme({
   palette: {
@@ -18,14 +19,16 @@ const theme = createMuiTheme({
 })
 
 function App() {
-  function updateContext(user, name) {
-    const newContext = { ...userLoggedContext, user, name }
+  function update(user) {
+    const newContext = { ...userLoggedContext, user }
     setUserLoggedContext(newContext)
+    setUser(user)
   }
+  const [user, setUser] = useLocalStorage('user')
   const [userLoggedContext, setUserLoggedContext] = useState({
-    user: null,
+    user,
     name: null,
-    update: updateContext,
+    update,
   })
   return (
     <>

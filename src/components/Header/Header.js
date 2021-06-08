@@ -33,7 +33,7 @@ export default function Header() {
           </Typography>
           <UserLoggedContent>
             <Box pr={1}>
-              <p>Boas vindas, {userLoggedContext.name}</p>
+              <p>Boas vindas, {userLoggedContext.user}</p>
             </Box>
           </UserLoggedContent>
           {!userLoggedContext.user && (
@@ -55,12 +55,12 @@ export default function Header() {
               Veículos
             </Link>
           </Box>
-          <Box p={1}>
-            <Link component={NavLink} to="/novo-veiculo" color="inherit">
-              Novo veículo
-            </Link>
-          </Box>
           <UserLoggedContent>
+            <Box p={1}>
+              <Link component={NavLink} to="/novo-veiculo" color="inherit">
+                Novo veículo
+              </Link>
+            </Box>
             <Box p={1}>
               <MaterialLink
                 onClick={() => {
