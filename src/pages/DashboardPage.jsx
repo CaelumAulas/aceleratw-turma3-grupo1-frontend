@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container'
 import React, { useEffect, useState } from 'react'
 import BrandCard from '../components/BrandCard/BrandCard'
 import PageTitle from '../components/PageTitle/PageTitle'
-import ApiListVehicles from '../infraestructure/api/ApiListVehicles'
+import { ApiListVehicles } from '../infraestructure/api/ApiVehicles'
 
 export default function DashboardPage() {
   const [vehicles, setVehicles] = useState([])

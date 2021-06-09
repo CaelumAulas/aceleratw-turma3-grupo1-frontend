@@ -402,7 +402,13 @@
       "year": 2008,
       "price": 339125
     },
-    { "id": 58, "brand": "Lexus", "model": "LS", "year": 1997, "price": 42026 },
+    {
+      "id": 58,
+      "brand": "Lexus",
+      "model": "LS",
+      "year": 1997,
+      "price": 42026
+    },
     {
       "id": 59,
       "brand": "Chevrolet",
@@ -676,7 +682,13 @@
       "year": 1997,
       "price": 40567
     },
-    { "id": 98, "brand": "Audi", "model": "90", "year": 1988, "price": 887293 },
+    {
+      "id": 98,
+      "brand": "Audi",
+      "model": "90",
+      "year": 1988,
+      "price": 887293
+    },
     {
       "id": 99,
       "brand": "Ford",
@@ -4541,7 +4553,13 @@
       "year": 2013,
       "price": 3430440
     },
-    { "id": 651, "brand": "BMW", "model": "Z3", "year": 1999, "price": 538585 },
+    {
+      "id": 651,
+      "brand": "BMW",
+      "model": "Z3",
+      "year": 1999,
+      "price": 538585
+    },
     {
       "id": 652,
       "brand": "Honda",
@@ -6075,7 +6093,13 @@
       "year": 1984,
       "price": 5315819
     },
-    { "id": 871, "brand": "BMW", "model": "M", "year": 2000, "price": 4098437 },
+    {
+      "id": 871,
+      "brand": "BMW",
+      "model": "M",
+      "year": 2000,
+      "price": 4098437
+    },
     {
       "id": 872,
       "brand": "Geo",
@@ -6272,7 +6296,13 @@
       "year": 2010,
       "price": 4639637
     },
-    { "id": 900, "brand": "MG", "model": "MGB", "year": 1977, "price": 122226 },
+    {
+      "id": 900,
+      "brand": "MG",
+      "model": "MGB",
+      "year": 1977,
+      "price": 122226
+    },
     {
       "id": 901,
       "brand": "Mercury",
@@ -6972,6 +7002,20 @@
       "model": "MKX",
       "year": 2011,
       "price": 4175250
+    },
+    {
+      "brand": "Jeep",
+      "model": "asdasdasd",
+      "year": "2021",
+      "price": "123123",
+      "id": 99999
+    },
+    {
+      "brand": "Jeep",
+      "model": "xaranga do frança",
+      "year": "2021",
+      "price": "666",
+      "id": 100000
     }
   ]
 }

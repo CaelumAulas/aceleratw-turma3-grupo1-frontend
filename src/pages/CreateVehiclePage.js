@@ -1,18 +1,39 @@
 import { Box, Container, Paper } from '@material-ui/core'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 import CreateVehicleForm from '../components/CreateVehicleForm/CreateVehicleForm'
 import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleFlowFormValidations from '../contexts/VehicleFlowFormValidation'
+import { ApiNewVehicle } from '../infraestructure/api/ApiVehicles'
 import {
   validateCarBrand,
   validateCarModel,
-  validateCarYear,
+  validateCarYear
 } from '../infraestructure/validations/form/form'
 
 export default function CreateVehiclePage() {
   const [formData, setFormData] = useState({})
+  const history = useHistory()
 
-  console.log(formData)
+  async function callApiNewVehicle() {
+    try {
+      const response = await ApiNewVehicle({
+        brand: formData.brand,
+        model: formData.model,
+        year: formData.year,
+        price: formData.price,
+      })
+      const { status } = response
+      if (status === 201) {
+        alert('Novo veículo cadastrado')
+        history.push('/')
+      } else {
+        // setShowModal(true)
+      }
+    } catch (e) {
+      // setShowModal(true)
+    }
+  }
 
   return (
     <Container maxWidth="xs">
@@ -29,7 +50,7 @@ export default function CreateVehiclePage() {
           >
             <CreateVehicleForm
               onChange={formData => setFormData(formData)}
-              onSubmit={data => console.log(data)}
+              onSubmit={callApiNewVehicle}
             />
           </VehicleFlowFormValidations.Provider>
         </Box>

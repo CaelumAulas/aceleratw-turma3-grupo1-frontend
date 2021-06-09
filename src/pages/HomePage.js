@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleTable from '../components/VehicleTable/VehicleTable'
 import ApiDeleteVehicle from '../infraestructure/api/ApiDeleteVehicle'
-import ApiListVehicles from '../infraestructure/api/ApiListVehicles'
+import { ApiListVehicles } from '../infraestructure/api/ApiVehicles'
 
 function sortVehiclesList(vehicles) {
   vehicles = vehicles.sort((a, b) => {

@@ -7,7 +7,7 @@ import {
   Select,
   TextField,
 } from '@material-ui/core'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import VehicleFlowFormValidations from '../../contexts/VehicleFlowFormValidation'
 import useFormValidators from '../../hooks/useFormValidators'
 
@@ -26,8 +26,12 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
       ...formData,
       [field]: event.target.value,
     })
-    onChange(formData)
   }
+
+  useEffect(() => {
+    onChange(formData)
+    console.log(formData)
+  }, [formData]);
 
   const formValidations = useContext(VehicleFlowFormValidations)
   const [errors, validateFormField, isFormValid, validateForm] =
