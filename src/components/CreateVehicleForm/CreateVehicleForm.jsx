@@ -102,7 +102,12 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
       />
 
       <Box mt={2}>
-        <Button type="submit" variant="contained" color="secondary">
+        <Button
+          type="submit"
+          disableElevation
+          variant="contained"
+          color="secondary"
+        >
           Enviar
         </Button>
       </Box>

@@ -36,7 +36,7 @@ export default function HomePage() {
   }
   return (
     <Container maxWidth="lg">
-      <PageTitle title="Veículos" subtitle="disponíveis para compra" />
+      <PageTitle title="Veículos disponíveis" />
       <Box mt={4}>
         <VehicleTable
           vehicles={vehicles}

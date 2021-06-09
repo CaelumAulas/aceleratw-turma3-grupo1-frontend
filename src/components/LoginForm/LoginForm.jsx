@@ -59,10 +59,16 @@ export default function LoginForm({ onChange, onSubmit }) {
         fullWidth
         required
       />
-      <Box mt={2} display="flex" justifyContent="space-between">
+      <Box
+        mt={2}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Button
           disabled={isFormValid() ? false : true}
           variant="contained"
+          disableElevation
           color="secondary"
           type="submit"
         >

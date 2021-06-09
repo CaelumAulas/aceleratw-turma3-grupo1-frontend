@@ -16,8 +16,11 @@ export default function CreateUserPage() {
     <Container maxWidth="xs">
       <Paper elevation={3}>
         <Box p={3}>
-          <Box mb="0.5rem" mt="0.5rem">
-            <PageTitle title="Registre-se" />
+          <Box mb="0.5rem">
+            <PageTitle
+              title="Cadastrar-se"
+              subtitle="Crie seu usuário para acesso"
+            />
             <p>
               Ficamos felizes com seu interesse em se registrar no Carango Bom.
               Preencha com seu usuário, e uma senha forte.

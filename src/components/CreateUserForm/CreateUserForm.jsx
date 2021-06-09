@@ -77,6 +77,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
           variant="contained"
           color="secondary"
           type="submit"
+          disableElevation
         >
           Cadastrar
         </Button>

@@ -48,7 +48,7 @@ export default function LoginPage() {
       <Container maxWidth="xs">
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title="Entrar" />
+            <PageTitle title="Entrar" subtitle="Digite seu usuário e senha" />
             <UserFlowFormValidations.Provider
               value={{
                 user: validateUser,
