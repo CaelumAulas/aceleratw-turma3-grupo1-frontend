@@ -4,7 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { useState } from 'react'
 import AppRouter from './components/AppRouter/AppRouter'
-import UserLogged from './contexts/UserLogged'
+import NotificationContext from './contexts/NotificationContext'
+import UserLoggedContext from './contexts/UserLoggedContext'
 import useLocalStorage from './hooks/useLocalStorage'
 
 const theme = createMuiTheme({
@@ -19,23 +20,33 @@ const theme = createMuiTheme({
 })
 
 function App() {
-  function update(user) {
+  function updateUser(user) {
     const newContext = { ...userLoggedContext, user }
     setUserLoggedContext(newContext)
     setUser(user)
   }
+  function updateNotification() {
+  }
   const [user, setUser] = useLocalStorage('user')
   const [userLoggedContext, setUserLoggedContext] = useState({
     user,
-    update,
+    update: updateUser,
   })
+  const [notificationContext, setNotificationContext] = useState({
+    notification,
+    update: updateNotification,
+  })
+
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <UserLogged.Provider value={userLoggedContext}>
-          <AppRouter />
-        </UserLogged.Provider>
+        <NotificationContext.Provider value={notificationContext}>
+          <UserLoggedContext.Provider value={userLoggedContext}>
+            <AppRouter />
+            <Notification />
+          </UserLoggedContext.Provider>
+        </NotificationContext.Provider>
       </ThemeProvider>
     </>
   )
