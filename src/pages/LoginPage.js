@@ -41,14 +41,14 @@ export default function LoginPage() {
     <>
       <Modal
         title={'Não foi possível logar'}
-        description={'Tente novamente mais tarde.'}
+        description={'Por favor, tente novamente mais tarde.'}
         open={showModal}
         onClose={() => setShowModal(false)}
       />
       <Container maxWidth="xs">
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title="Entrar" subtitle="Digite seu usuário e senha" />
+            <PageTitle title="Entrar" intro="Digite seu usuário e senha" />
             <UserFlowFormValidations.Provider
               value={{
                 user: validateUser,
