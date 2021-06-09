@@ -5,7 +5,7 @@ import React from 'react'
 export default function PageTitle({ title }) {
   return (
     <Box mb={4}>
-      <Typography variant="h5" component="h2">
+      <Typography variant="h4" component="h2">
         {title}
       </Typography>
     </Box>
