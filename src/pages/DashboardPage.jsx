@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import BrandCard from '../components/BrandCard/BrandCard'
 import PageTitle from '../components/PageTitle/PageTitle'
 import { ApiListVehicles } from '../infraestructure/api/ApiVehicles'
@@ -16,10 +16,10 @@ export default function DashboardPage() {
     } catch (e) {}
   }
 
-  function getBrands() {
+  const getBrands = useCallback(() => {
     const brands = [...new Set(vehicles.map(vehicle => vehicle.brand))].sort()
     setBrands(brands)
-  }
+  }, [vehicles])
 
   function getTotalVehiclesByBrand(brand) {
     return vehicles.filter(vehicle => vehicle.brand === brand).length
@@ -41,7 +41,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     getBrands()
-  }, [vehicles])
+  }, [vehicles, getBrands])
 
   return (
     <>
@@ -51,8 +51,9 @@ export default function DashboardPage() {
           subtitle="Nossas principais marcas disponíveis"
         />
         <Box display="flex" flexWrap="wrap">
-          {brands.map(brand => (
+          {brands.map((brand, index) => (
             <BrandCard
+              key={index}
               brand={brand}
               totalVehicles={getTotalVehiclesByBrand(brand)}
               amount={getTotalPriceByBrand(brand)}
