@@ -10,12 +10,6 @@ import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function Header() {
   const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     title: {
       flexGrow: 1,
     },
@@ -24,7 +18,7 @@ export default function Header() {
   const classes = useStyles()
   return (
     <>
-      <AppBar color="primary">
+      <AppBar color="primary" elevation={0}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link component={NavLink} to="/" color="inherit">
@@ -32,8 +26,8 @@ export default function Header() {
             </Link>
           </Typography>
           <UserLoggedContent>
-            <Box pr={1}>
-              <p>Boas vindas, {userLoggedContext.user}</p>
+            <Box pr={1} className={classes.title}>
+              <p>Boas vindas, {userLoggedContext.user}!</p>
             </Box>
           </UserLoggedContent>
           {!userLoggedContext.user && (
