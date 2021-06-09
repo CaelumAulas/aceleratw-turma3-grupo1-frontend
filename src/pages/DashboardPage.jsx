@@ -17,7 +17,7 @@ export default function DashboardPage() {
   }
 
   function getBrands() {
-    const brands = [...new Set(vehicles.map(vehicle => vehicle.brand))]
+    const brands = [...new Set(vehicles.map(vehicle => vehicle.brand))].sort()
     setBrands(brands)
   }
 
@@ -46,7 +46,10 @@ export default function DashboardPage() {
   return (
     <>
       <Container maxWidth="lg">
-        <PageTitle title="Dashboard" />
+        <PageTitle
+          title="Dashboard"
+          subtitle="Nossas principais marcas disponíveis"
+        />
         <Box display="flex" flexWrap="wrap">
           {brands.map(brand => (
             <BrandCard
