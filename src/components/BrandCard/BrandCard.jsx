@@ -15,8 +15,8 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
       <Card style={{ width: '230px' }}>
         <CardContent>
           <Box mb={5}>
-            <DriveEtaOutlinedIcon color="primary" />
-            <Typography variant="h4" component="h1" gutterBottom>
+            <DriveEtaOutlinedIcon color="primary" fontSize={'medium'} />
+            <Typography variant="h5" component="h1" gutterBottom>
               {brand}
             </Typography>
           </Box>
@@ -31,14 +31,7 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Link
-            to="/"
-            component={Button}
-            fullWidth
-            variant="contained"
-            color="secondary"
-            disableElevation
-          >
+          <Link to="/" component={Button}>
             Ver Todos
           </Link>
         </CardActions>
