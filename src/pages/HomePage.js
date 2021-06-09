@@ -5,13 +5,22 @@ import VehicleTable from '../components/VehicleTable/VehicleTable'
 import ApiDeleteVehicle from '../infraestructure/api/ApiDeleteVehicle'
 import ApiListVehicles from '../infraestructure/api/ApiListVehicles'
 
+function sortVehiclesList(vehicles) {
+  vehicles = vehicles.sort((a, b) => {
+    if (a.brand < b.brand) return -1
+    if (a.brand > b.brand) return 1
+    return 0
+  })
+  return vehicles
+}
+
 export default function HomePage() {
   const [vehicles, setVehicles] = useState([])
 
   async function callApiListVehicles() {
     try {
       const response = await ApiListVehicles()
-      setVehicles(response.data)
+      setVehicles(sortVehiclesList(response.data))
     } catch (e) {}
   }
 
@@ -25,7 +34,6 @@ export default function HomePage() {
       callApiListVehicles()
     } catch (e) {}
   }
-
   return (
     <Container maxWidth="lg">
       <PageTitle title="Veículos" subtitle="disponíveis para compra" />
