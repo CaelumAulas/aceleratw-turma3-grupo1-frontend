@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import React from 'react'
 import { formatToCurrency } from '../../infraestructure/currency'
 import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
+import { Link } from 'react-router-dom'
 
 export default function BrandCard({ brand, totalVehicles, amount }) {
   return (
@@ -30,15 +31,16 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button
+          <Link
+            to="/"
+            component={Button}
             fullWidth
             variant="contained"
             color="secondary"
-            colorhov
             disableElevation
           >
             Ver Todos
-          </Button>
+          </Link>
         </CardActions>
       </Card>
     </Box>
