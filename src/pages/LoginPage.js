@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm'
 import Modal from '../components/Modal/Modal'
 import PageTitle from '../components/PageTitle/PageTitle'
+import NotificationContext from '../contexts/NotificationContext'
 import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
 import UserLoggedContext from '../contexts/UserLoggedContext'
 import ApiLogin from '../infraestructure/api/ApiLogin'
@@ -17,7 +18,9 @@ export default function LoginPage() {
   const history = useHistory()
   const [formData, setFormData] = useState({})
   const [showModal, setShowModal] = useState(false)
+
   const userLoggedContext = useContext(UserLoggedContext)
+  const notification = useContext(NotificationContext)
 
   async function callApiLogin() {
     try {
@@ -28,6 +31,9 @@ export default function LoginPage() {
       const { data } = response
       if (data.logado) {
         history.push('/')
+        notification.update({
+          message: `Boas vindas, ${formData.user}! Aproveite o Carango Bom :)`,
+        })
         userLoggedContext.update(formData.user)
       } else {
         setShowModal(true)

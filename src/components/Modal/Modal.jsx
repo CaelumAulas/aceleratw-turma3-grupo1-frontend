@@ -1,7 +1,7 @@
+import { Box, Button, Card, Container } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
-import { Card, Container, Box, Typography, Button } from '@material-ui/core'
-import './Modal.css'
 import PageTitle from '../PageTitle/PageTitle'
+import './Modal.css'
 
 export default function Modal({ title, description, open, onClose }) {
   const [show, setShow] = useState(open)

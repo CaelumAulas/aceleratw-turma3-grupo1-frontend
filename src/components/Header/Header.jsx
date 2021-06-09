@@ -5,17 +5,21 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import React, { useContext } from 'react'
 import { Link as NavLink } from 'react-router-dom'
+import NotificationContext from '../../contexts/NotificationContext'
 import UserLoggedContext from '../../contexts/UserLoggedContext'
 import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function Header() {
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles(() => ({
     title: {
       flexGrow: 1,
     },
   }))
-  const userLoggedContext = useContext(UserLoggedContext)
+  const userContext = useContext(UserLoggedContext)
+  const notificationContext = useContext(NotificationContext)
+
   const classes = useStyles()
+
   return (
     <>
       <AppBar color="primary" elevation={0}>
@@ -25,12 +29,7 @@ export default function Header() {
               Carango Bom
             </Link>
           </Typography>
-          <UserLoggedContent>
-            <Box pr={1} className={classes.title}>
-              <p>Boas vindas, {userLoggedContext.user}!</p>
-            </Box>
-          </UserLoggedContent>
-          {!userLoggedContext.user && (
+          {!userContext.user && (
             <Box p={1}>
               <Link component={NavLink} to="/login" color="inherit">
                 Entrar
@@ -58,7 +57,10 @@ export default function Header() {
             <Box p={1}>
               <MaterialLink
                 onClick={() => {
-                  userLoggedContext.update(null, null)
+                  userContext.update(null)
+                  notificationContext.update({
+                    message: 'Você saiu do sistema.',
+                  })
                 }}
                 color="white"
               >

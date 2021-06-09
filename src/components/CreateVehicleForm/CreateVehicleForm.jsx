@@ -30,8 +30,7 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
 
   useEffect(() => {
     onChange(formData)
-    console.log(formData)
-  }, [formData]);
+  }, [formData])
 
   const formValidations = useContext(VehicleFlowFormValidationsContext)
   const [errors, validateFormField, isFormValid, validateForm] =

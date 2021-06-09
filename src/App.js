@@ -2,8 +2,9 @@ import { yellow } from '@material-ui/core/colors'
 import purple from '@material-ui/core/colors/purple'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import AppRouter from './components/AppRouter/AppRouter'
+import Notification from './components/Notification/Notification'
 import NotificationContext from './contexts/NotificationContext'
 import UserLoggedContext from './contexts/UserLoggedContext'
 import useLocalStorage from './hooks/useLocalStorage'
@@ -20,31 +21,41 @@ const theme = createMuiTheme({
 })
 
 function App() {
-  function updateUser(user) {
-    const newContext = { ...userLoggedContext, user }
-    setUserLoggedContext(newContext)
-    setUser(user)
-  }
-  function updateNotification() {
-  }
-  const [user, setUser] = useLocalStorage('user')
-  const [userLoggedContext, setUserLoggedContext] = useState({
-    user,
-    update: updateUser,
+  const [storedUser, setStoredUser] = useLocalStorage('user')
+  const [user, setUser] = useState({
+    user: storedUser,
+    update: user => {
+      setUser({ ...user, user })
+      setStoredUser(user)
+    },
   })
-  const [notificationContext, setNotificationContext] = useState({
-    notification,
-    update: updateNotification,
+
+  const notificationContext = useContext(NotificationContext)
+  const [notification, setNotification] = useState({
+    ...notificationContext,
+
+    update: ({ message, severity, open }) => {
+      setNotification({
+        ...notification,
+        message,
+        severity,
+        open,
+      })
+    },
   })
 
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <NotificationContext.Provider value={notificationContext}>
-          <UserLoggedContext.Provider value={userLoggedContext}>
+        <NotificationContext.Provider value={notification}>
+          <UserLoggedContext.Provider value={user}>
+            <Notification
+              message={notification.message}
+              severity={notification.severity}
+              open={notification.open}
+            />
             <AppRouter />
-            <Notification />
           </UserLoggedContext.Provider>
         </NotificationContext.Provider>
       </ThemeProvider>
