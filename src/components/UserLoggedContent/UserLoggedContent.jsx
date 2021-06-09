@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import UserLogged from '../../contexts/UserLogged'
+import UserLoggedContext from '../../contexts/UserLoggedContext'
 
 export default function UserLoggedContent({ children }) {
-  const userLoggedContext = useContext(UserLogged)
+  const userLoggedContext = useContext(UserLoggedContext)
   if (!userLoggedContext.user) return <></>
   return <>{children}</>
 }

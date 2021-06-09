@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container'
 import React, { useState } from 'react'
 import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
 import PageTitle from '../components/PageTitle/PageTitle'
-import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
+import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
 import {
   validatePassword,
   validatePasswordConfirmation,
@@ -22,7 +22,7 @@ export default function CreateUserPage() {
               intro="Ficamos felizes com seu interesse em se registrar no Carango Bom. Preencha com seu usuário, e uma senha forte."
             />
           </Box>
-          <UserFlowFormValidations.Provider
+          <UserFlowFormValidationsContext.Provider
             value={{
               user: validateUser,
               password: validatePassword,
@@ -37,7 +37,7 @@ export default function CreateUserPage() {
               onChange={formData => setFormData(formData)}
               onSubmit={data => console.log(data)}
             />
-          </UserFlowFormValidations.Provider>
+          </UserFlowFormValidationsContext.Provider>
         </Box>
       </Paper>
     </Container>

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
 import React, { useContext, useState } from 'react'
-import UserFlowFormValidations from '../../contexts/UserFlowFormValidations'
+import UserFlowFormValidationsContext from '../../contexts/UserFlowFormValidationsContext'
 import useFormValidators from '../../hooks/useFormValidators'
 
 export default function RegisterUserForm({ onSubmit, onChange }) {
@@ -21,7 +21,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
     onChange(formData)
   }
 
-  const formValidations = useContext(UserFlowFormValidations)
+  const formValidations = useContext(UserFlowFormValidationsContext)
   const [errors, validateFormField, isFormValid, validateForm] =
     useFormValidators(formValidations)
   return (

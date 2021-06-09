@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Redirect } from 'react-router'
-import UserLogged from '../../contexts/UserLogged'
+import UserLoggedContext from '../../contexts/UserLoggedContext'
 
 export default function UserRestrictedRoute({ children }) {
-  const userLoggedContext = useContext(UserLogged)
+  const userLoggedContext = useContext(UserLoggedContext)
 
   if (!userLoggedContext.user) {
     return <Redirect to="/login" />

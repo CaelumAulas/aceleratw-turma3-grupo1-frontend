@@ -8,7 +8,7 @@ import {
   TextField,
 } from '@material-ui/core'
 import React, { useState, useContext, useEffect } from 'react'
-import VehicleFlowFormValidations from '../../contexts/VehicleFlowFormValidation'
+import VehicleFlowFormValidationsContext from '../../contexts/VehicleFlowFormValidationsContext'
 import useFormValidators from '../../hooks/useFormValidators'
 
 export default function CreateVehicleForm({ onChange, onSubmit }) {
@@ -33,7 +33,7 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
     console.log(formData)
   }, [formData]);
 
-  const formValidations = useContext(VehicleFlowFormValidations)
+  const formValidations = useContext(VehicleFlowFormValidationsContext)
   const [errors, validateFormField, isFormValid, validateForm] =
     useFormValidators(formValidations)
 

@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm'
 import Modal from '../components/Modal/Modal'
 import PageTitle from '../components/PageTitle/PageTitle'
-import UserFlowFormValidations from '../contexts/UserFlowFormValidations'
-import UserLogged from '../contexts/UserLogged'
+import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
+import UserLoggedContext from '../contexts/UserLoggedContext'
 import ApiLogin from '../infraestructure/api/ApiLogin'
 import {
   validatePassword,
@@ -17,7 +17,7 @@ export default function LoginPage() {
   const history = useHistory()
   const [formData, setFormData] = useState({})
   const [showModal, setShowModal] = useState(false)
-  const userLoggedContext = useContext(UserLogged)
+  const userLoggedContext = useContext(UserLoggedContext)
 
   async function callApiLogin() {
     try {
@@ -49,7 +49,7 @@ export default function LoginPage() {
         <Paper elevation={3}>
           <Box p={3}>
             <PageTitle title="Entrar" intro="Digite seu usuário e senha" />
-            <UserFlowFormValidations.Provider
+            <UserFlowFormValidationsContext.Provider
               value={{
                 user: validateUser,
                 password: validatePassword,
@@ -59,7 +59,7 @@ export default function LoginPage() {
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiLogin}
               />
-            </UserFlowFormValidations.Provider>
+            </UserFlowFormValidationsContext.Provider>
           </Box>
         </Paper>
       </Container>

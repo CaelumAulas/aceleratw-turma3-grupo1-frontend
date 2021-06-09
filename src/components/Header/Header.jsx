@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import React, { useContext } from 'react'
 import { Link as NavLink } from 'react-router-dom'
-import UserLogged from '../../contexts/UserLogged'
+import UserLoggedContext from '../../contexts/UserLoggedContext'
 import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
       flexGrow: 1,
     },
   }))
-  const userLoggedContext = useContext(UserLogged)
+  const userLoggedContext = useContext(UserLoggedContext)
   const classes = useStyles()
   return (
     <>

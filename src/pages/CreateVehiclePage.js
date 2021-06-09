@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import CreateVehicleForm from '../components/CreateVehicleForm/CreateVehicleForm'
 import PageTitle from '../components/PageTitle/PageTitle'
-import VehicleFlowFormValidations from '../contexts/VehicleFlowFormValidation'
+import VehicleFlowFormValidationsContext from '../contexts/VehicleFlowFormValidationsContext'
 import { ApiNewVehicle } from '../infraestructure/api/ApiVehicles'
 import {
   validateCarBrand,
@@ -52,7 +52,7 @@ export default function CreateVehiclePage() {
           <Box p={3}>
             <PageTitle title="Novo veículo" />
 
-            <VehicleFlowFormValidations.Provider
+            <VehicleFlowFormValidationsContext.Provider
               value={{
                 brand: validateCarBrand,
                 year: validateCarYear,
@@ -63,7 +63,7 @@ export default function CreateVehiclePage() {
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiNewVehicle}
               />
-            </VehicleFlowFormValidations.Provider>
+            </VehicleFlowFormValidationsContext.Provider>
           </Box>
         </Paper>
       </Container>

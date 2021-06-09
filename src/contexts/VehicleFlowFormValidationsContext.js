@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-const VehicleFlowFormValidations = createContext({
+const VehicleFlowFormValidationsContext = createContext({
   brand: noValidation,
   model: noValidation,
   year: noValidation,
@@ -10,4 +10,4 @@ function noValidation(dados) {
   return { isValid: true, text: '' }
 }
 
-export default VehicleFlowFormValidations
+export default VehicleFlowFormValidationsContext
