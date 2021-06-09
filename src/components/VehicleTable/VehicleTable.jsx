@@ -22,8 +22,8 @@ export default function VehicleTable({
   if (vehicles.length === 0) return <p>Não há veículos a venda.</p>
 
   return (
-    <TableContainer component={Paper} elevation={3}>
-      <Table aria-label="simple table">
+    <TableContainer component={Paper}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell width="30%">Marca</TableCell>

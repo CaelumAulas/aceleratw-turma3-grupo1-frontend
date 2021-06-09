@@ -18,7 +18,7 @@ export default function CreateVehiclePage() {
     <Container maxWidth="xs">
       <Paper elevation={3}>
         <Box p={3}>
-          <PageTitle title="Cadastre um novo veículo" />
+          <PageTitle title="Novo veículo" />
 
           <VehicleFlowFormValidations.Provider
             value={{

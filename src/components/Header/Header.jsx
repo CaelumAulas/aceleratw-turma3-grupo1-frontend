@@ -24,7 +24,7 @@ export default function Header() {
   const classes = useStyles()
   return (
     <>
-      <AppBar color="primary" elevation={1}>
+      <AppBar color="primary">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link component={NavLink} to="/" color="inherit">
