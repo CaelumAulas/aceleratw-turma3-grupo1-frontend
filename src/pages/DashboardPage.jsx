@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container'
 import React, { useCallback, useEffect, useState } from 'react'
 import BrandCard from '../components/BrandCard/BrandCard'
 import PageTitle from '../components/PageTitle/PageTitle'
-import { ApiListVehicles } from '../infraestructure/api/ApiVehicles'
+import { listVehicles } from '../infraestructure/api/vehicles'
 
 export default function DashboardPage() {
   const [vehicles, setVehicles] = useState([])
@@ -11,7 +11,7 @@ export default function DashboardPage() {
 
   async function callApiListVehicles() {
     try {
-      const response = await ApiListVehicles()
+      const response = await listVehicles()
       setVehicles(response.data)
     } catch (e) {}
   }

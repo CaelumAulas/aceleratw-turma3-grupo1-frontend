@@ -2,8 +2,7 @@ import { Box, Container } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import PageTitle from '../components/PageTitle/PageTitle'
 import VehicleTable from '../components/VehicleTable/VehicleTable'
-import ApiDeleteVehicle from '../infraestructure/api/ApiDeleteVehicle'
-import { ApiListVehicles } from '../infraestructure/api/ApiVehicles'
+import { deleteVehicle, listVehicles } from '../infraestructure/api/vehicles'
 
 function sortVehiclesList(vehicles) {
   vehicles = vehicles.sort((a, b) => {
@@ -19,7 +18,7 @@ export default function HomePage() {
 
   async function callApiListVehicles() {
     try {
-      const response = await ApiListVehicles()
+      const response = await listVehicles()
       setVehicles(sortVehiclesList(response.data))
     } catch (e) {}
   }
@@ -30,8 +29,7 @@ export default function HomePage() {
 
   async function callApiDeleteVehicle(id) {
     try {
-      await ApiDeleteVehicle(id)
-      callApiListVehicles()
+      await deleteVehicle(id)
     } catch (e) {}
   }
   return (

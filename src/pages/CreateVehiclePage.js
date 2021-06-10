@@ -6,7 +6,7 @@ import Modal from '../components/Modal/Modal'
 import PageTitle from '../components/PageTitle/PageTitle'
 import NotificationContext from '../contexts/NotificationContext'
 import VehicleFlowFormValidationsContext from '../contexts/VehicleFlowFormValidationsContext'
-import { ApiNewVehicle } from '../infraestructure/api/ApiVehicles'
+import { newVehicle } from '../infraestructure/api/vehicles'
 import {
   validateCarBrand,
   validateCarModel,
@@ -22,7 +22,7 @@ export default function CreateVehiclePage() {
 
   async function callApiNewVehicle() {
     try {
-      const response = await ApiNewVehicle({
+      const response = await newVehicle({
         brand: formData.brand,
         model: formData.model,
         year: formData.year,

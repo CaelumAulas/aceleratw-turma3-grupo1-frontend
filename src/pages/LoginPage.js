@@ -8,7 +8,7 @@ import PageTitle from '../components/PageTitle/PageTitle'
 import NotificationContext from '../contexts/NotificationContext'
 import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
 import UserLoggedContext from '../contexts/UserLoggedContext'
-import ApiLogin from '../infraestructure/api/ApiLogin'
+import { login } from '../infraestructure/api/login'
 import {
   validatePassword,
   validateUser,
@@ -24,7 +24,7 @@ export default function LoginPage() {
 
   async function callApiLogin() {
     try {
-      const response = await ApiLogin({
+      const response = await login({
         user: formData.user,
         password: formData.password,
       })
