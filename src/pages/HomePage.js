@@ -30,6 +30,7 @@ export default function HomePage() {
   async function callApiDeleteVehicle(id) {
     try {
       await deleteVehicle(id)
+      await callApiListVehicles()
     } catch (e) {}
   }
   return (
