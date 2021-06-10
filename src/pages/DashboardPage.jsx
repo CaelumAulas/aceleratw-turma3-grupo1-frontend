@@ -1,9 +1,9 @@
 import { Box } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
+import BrandCard from 'components/BrandCard/BrandCard'
+import PageTitle from 'components/PageTitle/PageTitle'
+import { listVehicles } from 'infraestructure/api/vehicles'
 import React, { useCallback, useEffect, useState } from 'react'
-import BrandCard from '../components/BrandCard/BrandCard'
-import PageTitle from '../components/PageTitle/PageTitle'
-import { listVehicles } from '../infraestructure/api/vehicles'
 
 export default function DashboardPage() {
   const [vehicles, setVehicles] = useState([])

@@ -1,18 +1,18 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import LoginForm from '../components/LoginForm/LoginForm'
-import Modal from '../components/Modal/Modal'
-import PageTitle from '../components/PageTitle/PageTitle'
-import NotificationContext from '../contexts/NotificationContext'
-import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
-import UserLoggedContext from '../contexts/UserLoggedContext'
-import { login } from '../infraestructure/api/login'
+import LoginForm from 'components/LoginForm/LoginForm'
+import Modal from 'components/Modal/Modal'
+import PageTitle from 'components/PageTitle/PageTitle'
+import NotificationContext from 'contexts/NotificationContext'
+import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsContext'
+import UserLoggedContext from 'contexts/UserLoggedContext'
+import { login } from 'infraestructure/api/login'
 import {
   validatePassword,
   validateUser,
-} from '../infraestructure/validations/form/form'
+} from 'infraestructure/validations/form/form'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function LoginPage() {
   const history = useHistory()

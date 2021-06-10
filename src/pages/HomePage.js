@@ -1,8 +1,8 @@
 import { Box, Container } from '@material-ui/core'
+import PageTitle from 'components/PageTitle/PageTitle'
+import VehicleTable from 'components/VehicleTable/VehicleTable'
+import { deleteVehicle, listVehicles } from 'infraestructure/api/vehicles'
 import React, { useEffect, useState } from 'react'
-import PageTitle from '../components/PageTitle/PageTitle'
-import VehicleTable from '../components/VehicleTable/VehicleTable'
-import { deleteVehicle, listVehicles } from '../infraestructure/api/vehicles'
 
 function sortVehiclesList(vehicles) {
   vehicles = vehicles.sort((a, b) => {

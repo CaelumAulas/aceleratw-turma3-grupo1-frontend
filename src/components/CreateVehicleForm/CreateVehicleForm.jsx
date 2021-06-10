@@ -7,9 +7,9 @@ import {
   Select,
   TextField,
 } from '@material-ui/core'
-import React, { useState, useContext, useEffect } from 'react'
-import VehicleFlowFormValidationsContext from '../../contexts/VehicleFlowFormValidationsContext'
-import useFormValidators from '../../hooks/useFormValidators'
+import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
+import useFormValidators from 'hooks/useFormValidators'
+import React, { useContext, useEffect, useState } from 'react'
 
 export default function CreateVehicleForm({ onChange, onSubmit }) {
   const [formData, setFormData] = useState({

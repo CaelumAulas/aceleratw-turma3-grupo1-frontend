@@ -1,17 +1,17 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router'
-import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
-import PageTitle from '../components/PageTitle/PageTitle'
-import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
-import UserLoggedContext from '../contexts/UserLoggedContext'
-import { registerUser } from '../infraestructure/api/user'
+import RegisterUserForm from 'components/CreateUserForm/CreateUserForm'
+import PageTitle from 'components/PageTitle/PageTitle'
+import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsContext'
+import UserLoggedContext from 'contexts/UserLoggedContext'
+import { registerUser } from 'infraestructure/api/user'
 import {
   validatePassword,
   validatePasswordConfirmation,
   validateUser,
-} from '../infraestructure/validations/form/form'
+} from 'infraestructure/validations/form/form'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router'
 
 export default function CreateUserPage() {
   const [formData, setFormData] = useState({})

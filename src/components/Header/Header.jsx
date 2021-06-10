@@ -3,11 +3,11 @@ import Link from '@material-ui/core/Link'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import UserLoggedContent from 'components/UserLoggedContent/UserLoggedContent'
+import NotificationContext from 'contexts/NotificationContext'
+import UserLoggedContext from 'contexts/UserLoggedContext'
 import React, { useContext } from 'react'
 import { Link as NavLink } from 'react-router-dom'
-import NotificationContext from '../../contexts/NotificationContext'
-import UserLoggedContext from '../../contexts/UserLoggedContext'
-import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function Header() {
   const useStyles = makeStyles(() => ({

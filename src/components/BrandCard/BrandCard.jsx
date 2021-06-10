@@ -4,9 +4,9 @@ import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
-import { formatToCurrency } from '../../infraestructure/currency'
 import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
+import { formatToCurrency } from 'infraestructure/currency'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function BrandCard({ brand, totalVehicles, amount }) {

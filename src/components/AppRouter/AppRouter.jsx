@@ -1,12 +1,12 @@
 import { Box } from '@material-ui/core'
+import Header from 'components/Header/Header'
+import UserRestrictedRoute from 'components/UserRestrictedRoute/UserRestrictedRoute'
+import CreateUserPage from 'pages/CreateUserPage'
+import CreateVehiclePage from 'pages/CreateVehiclePage'
+import DashboardPage from 'pages/DashboardPage'
+import HomePage from 'pages/HomePage'
+import LoginPage from 'pages/LoginPage'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import CreateUserPage from '../../pages/CreateUserPage'
-import CreateVehiclePage from '../../pages/CreateVehiclePage'
-import DashboardPage from '../../pages/DashboardPage'
-import HomePage from '../../pages/HomePage'
-import LoginPage from '../../pages/LoginPage'
-import Header from '../Header/Header'
-import UserRestrictedRoute from '../UserRestrictedRoute/UserRestrictedRoute'
 
 export default function AppRouter() {
   return (

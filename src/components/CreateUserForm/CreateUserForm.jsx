@@ -2,9 +2,9 @@ import { Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
+import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsContext'
+import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useEffect, useState } from 'react'
-import UserFlowFormValidationsContext from '../../contexts/UserFlowFormValidationsContext'
-import useFormValidators from '../../hooks/useFormValidators'
 
 export default function RegisterUserForm({ onSubmit, onChange }) {
   const [formData, setFormData] = useState({

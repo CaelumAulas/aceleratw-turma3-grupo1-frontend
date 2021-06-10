@@ -1,17 +1,17 @@
 import { Box, Container, Paper } from '@material-ui/core'
-import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router'
-import CreateVehicleForm from '../components/CreateVehicleForm/CreateVehicleForm'
-import Modal from '../components/Modal/Modal'
-import PageTitle from '../components/PageTitle/PageTitle'
-import NotificationContext from '../contexts/NotificationContext'
-import VehicleFlowFormValidationsContext from '../contexts/VehicleFlowFormValidationsContext'
-import { newVehicle } from '../infraestructure/api/vehicles'
+import CreateVehicleForm from 'components/CreateVehicleForm/CreateVehicleForm'
+import Modal from 'components/Modal/Modal'
+import PageTitle from 'components/PageTitle/PageTitle'
+import NotificationContext from 'contexts/NotificationContext'
+import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
+import { newVehicle } from 'infraestructure/api/vehicles'
 import {
   validateCarBrand,
   validateCarModel,
   validateCarYear,
-} from '../infraestructure/validations/form/form'
+} from 'infraestructure/validations/form/form'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router'
 
 export default function CreateVehiclePage() {
   const [showModal, setShowModal] = useState(false)

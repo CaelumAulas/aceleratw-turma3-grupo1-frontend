@@ -1,6 +1,6 @@
 import { Box, Button, Card, Container } from '@material-ui/core'
+import PageTitle from 'components/PageTitle/PageTitle'
 import React, { useEffect, useState } from 'react'
-import PageTitle from '../PageTitle/PageTitle'
 import './Modal.css'
 
 export default function Modal({ title, description, open, onClose }) {

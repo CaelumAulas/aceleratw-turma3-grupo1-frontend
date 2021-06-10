@@ -3,9 +3,9 @@ import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
+import UserFlowValidations from 'contexts/UserFlowFormValidationsContext'
+import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useState } from 'react'
-import UserFlowValidations from '../../contexts/UserFlowFormValidationsContext'
-import useFormValidators from '../../hooks/useFormValidators'
 import { Link as NavLink } from 'react-router-dom'
 
 export default function LoginForm({ onChange, onSubmit }) {

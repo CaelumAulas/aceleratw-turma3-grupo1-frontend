@@ -10,9 +10,9 @@ import {
 } from '@material-ui/core'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
+import UserLoggedContent from 'components/UserLoggedContent/UserLoggedContent'
+import { formatToCurrency } from 'infraestructure/currency'
 import React from 'react'
-import { formatToCurrency } from '../../infraestructure/currency'
-import UserLoggedContent from '../UserLoggedContent/UserLoggedContent'
 
 export default function VehicleTable({
   vehicles = [],
