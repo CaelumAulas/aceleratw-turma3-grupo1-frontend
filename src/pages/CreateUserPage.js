@@ -6,7 +6,7 @@ import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
 import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
 import UserLoggedContext from '../contexts/UserLoggedContext'
-import ApiRegisterUser from '../infraestructure/api/ApiUser'
+import { registerUser } from '../infraestructure/api/user'
 import {
   validatePassword,
   validatePasswordConfirmation,
@@ -20,7 +20,7 @@ export default function CreateUserPage() {
 
   async function callApiRegisterUser() {
     try {
-      const response = await ApiRegisterUser({
+      const response = await registerUser({
         username: formData.user,
         password: formData.password,
       })
