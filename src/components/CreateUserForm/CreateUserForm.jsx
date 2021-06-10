@@ -2,7 +2,7 @@ import { Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import UserFlowFormValidationsContext from '../../contexts/UserFlowFormValidationsContext'
 import useFormValidators from '../../hooks/useFormValidators'
 
@@ -18,12 +18,17 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       ...formData,
       [field]: event.target.value,
     })
-    onChange(formData)
   }
 
   const formValidations = useContext(UserFlowFormValidationsContext)
+  useEffect(() => {
+    onChange(formData)
+    console.log(formData)
+  }, [formData])
+
   const [errors, validateFormField, isFormValid, validateForm] =
     useFormValidators(formValidations)
+
   return (
     <form
       autoComplete="off"

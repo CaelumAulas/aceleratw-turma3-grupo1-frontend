@@ -1,9 +1,12 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router'
 import RegisterUserForm from '../components/CreateUserForm/CreateUserForm'
 import PageTitle from '../components/PageTitle/PageTitle'
 import UserFlowFormValidationsContext from '../contexts/UserFlowFormValidationsContext'
+import UserLoggedContext from '../contexts/UserLoggedContext'
+import ApiRegisterUser from '../infraestructure/api/ApiUser'
 import {
   validatePassword,
   validatePasswordConfirmation,
@@ -12,6 +15,23 @@ import {
 
 export default function CreateUserPage() {
   const [formData, setFormData] = useState({})
+  const userLoggedContext = useContext(UserLoggedContext)
+  const history = useHistory()
+
+  async function callApiRegisterUser() {
+    try {
+      const response = await ApiRegisterUser({
+        username: formData.user,
+        password: formData.password,
+      })
+      const { data } = response
+      if (data) {
+        history.push('/')
+        userLoggedContext.update(formData.user)
+      } else {
+      }
+    } catch (e) {}
+  }
   return (
     <Container maxWidth="xs">
       <Paper elevation={3}>
@@ -35,7 +55,7 @@ export default function CreateUserPage() {
           >
             <RegisterUserForm
               onChange={formData => setFormData(formData)}
-              onSubmit={data => console.log(data)}
+              onSubmit={callApiRegisterUser}
             />
           </UserFlowFormValidationsContext.Provider>
         </Box>
