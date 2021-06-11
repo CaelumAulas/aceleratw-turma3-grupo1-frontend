@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core'
 import Header from 'components/Header/Header'
-import UserRestrictedRoute from 'components/UserRestrictedRoute/UserRestrictedRoute'
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute'
 import CreateUserPage from 'pages/CreateUserPage'
 import CreateVehiclePage from 'pages/CreateVehiclePage'
 import DashboardPage from 'pages/DashboardPage'
@@ -27,21 +27,15 @@ export default function AppRouter() {
           <Route path="/novo-usuario">
             <CreateUserPage />
           </Route>
-          <Route path="/dashboard">
-            <UserRestrictedRoute>
-              <DashboardPage />
-            </UserRestrictedRoute>
-          </Route>
-          <Route path="/novo-veiculo">
-            <UserRestrictedRoute>
-              <CreateVehiclePage />
-            </UserRestrictedRoute>
-          </Route>
-          <Route path="/veiculo/editar/:id">
-            <UserRestrictedRoute>
-              <UpdateVehiclePage />
-            </UserRestrictedRoute>
-          </Route>
+          <PrivateRoute path="/dashboard">
+            <DashboardPage />
+          </PrivateRoute>
+          <PrivateRoute path="/novo-veiculo">
+            <CreateVehiclePage />
+          </PrivateRoute>
+          <PrivateRoute path="/veiculo/editar/:id">
+            <UpdateVehiclePage />
+          </PrivateRoute>
         </Switch>
       </Box>
     </Router>
