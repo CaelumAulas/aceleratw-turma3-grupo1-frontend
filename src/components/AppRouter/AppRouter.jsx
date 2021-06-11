@@ -6,6 +6,7 @@ import CreateVehiclePage from 'pages/CreateVehiclePage'
 import DashboardPage from 'pages/DashboardPage'
 import HomePage from 'pages/HomePage'
 import LoginPage from 'pages/LoginPage'
+import UpdateVehiclePage from 'pages/UpdateVehiclePage'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 export default function AppRouter() {
@@ -34,6 +35,11 @@ export default function AppRouter() {
           <Route path="/novo-veiculo">
             <UserRestrictedRoute>
               <CreateVehiclePage />
+            </UserRestrictedRoute>
+          </Route>
+          <Route path="/veiculo/editar/:id">
+            <UserRestrictedRoute>
+              <UpdateVehiclePage />
             </UserRestrictedRoute>
           </Route>
         </Switch>

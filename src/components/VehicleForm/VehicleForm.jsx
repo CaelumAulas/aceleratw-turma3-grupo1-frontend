@@ -11,13 +11,18 @@ import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidatio
 import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function CreateVehicleForm({ onChange, onSubmit }) {
-  const [formData, setFormData] = useState({
+export default function VehicleForm({
+  onChange,
+  onSubmit,
+  label = 'Enviar',
+  value = {
     brand: '',
     model: '',
     year: '2021',
-    price: '0',
-  })
+    price: '2',
+  },
+}) {
+  const [formData, setFormData] = useState(value)
 
   const brands = ['Fiat', 'Jeep', 'Ford']
 
@@ -100,7 +105,7 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
         label="Valor"
         fullWidth
         required
-        value={formData.money}
+        value={formData.price}
         onChange={e => updateFieldValue(e, 'price')}
       />
 
@@ -111,7 +116,7 @@ export default function CreateVehicleForm({ onChange, onSubmit }) {
           variant="contained"
           color="secondary"
         >
-          Enviar
+          {label}
         </Button>
       </Box>
     </form>

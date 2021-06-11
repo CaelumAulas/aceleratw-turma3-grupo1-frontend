@@ -1,10 +1,9 @@
 import { Box, Container, Paper } from '@material-ui/core'
 import Modal from 'components/Modal/Modal'
 import PageTitle from 'components/PageTitle/PageTitle'
-import CreateVehicleForm from 'components/VehicleForm/VehicleForm'
+import VehicleForm from 'components/VehicleForm/VehicleForm'
 import NotificationContext from 'contexts/NotificationContext'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
-import { newVehicle } from 'infraestructure/api/vehicles'
 import {
   validateCarBrand,
   validateCarModel,
@@ -12,36 +11,22 @@ import {
 } from 'infraestructure/validations/form/form'
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router'
+import { useRouteMatch } from 'react-router-dom'
 
-export default function CreateVehiclePage() {
-  const [showModal, setShowModal] = useState(false)
-  const [formData, setFormData] = useState({})
+export default function UpdateVehiclePage() {
   const history = useHistory()
-
   const notification = useContext(NotificationContext)
-
-  async function callApiNewVehicle() {
-    try {
-      const response = await newVehicle({
-        brand: formData.brand,
-        model: formData.model,
-        year: formData.year,
-        price: formData.price,
-      })
-      const { status } = response
-      if (status === 201) {
-        history.push('/')
-        notification.update({
-          message: `O veículo ${formData.brand} ${formData.model} foi criado com sucesso!`,
-          severity: 'success',
-        })
-      } else {
-        setShowModal(true)
-      }
-    } catch (e) {
-      setShowModal(true)
-    }
-  }
+  const [showModal, setShowModal] = useState(false)
+  const [formData, setFormData] = useState({
+    id: 2,
+    brand: 'Fiat',
+    model: 'Uno',
+    year: 2020,
+    price: '9929292',
+  })
+  const {
+    params: { id },
+  } = useRouteMatch()
 
   return (
     <>
@@ -56,8 +41,7 @@ export default function CreateVehiclePage() {
       <Container maxWidth="xs">
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title="Novo veículo" />
-
+            <PageTitle title={`${formData.brand} ${formData.model}`} />
             <VehicleFlowFormValidationsContext.Provider
               value={{
                 brand: validateCarBrand,
@@ -65,9 +49,11 @@ export default function CreateVehiclePage() {
                 model: validateCarModel,
               }}
             >
-              <CreateVehicleForm
+              <VehicleForm
+                value={formData}
                 onChange={formData => setFormData(formData)}
-                onSubmit={callApiNewVehicle}
+                onSubmit={() => {}}
+                label="Editar"
               />
             </VehicleFlowFormValidationsContext.Provider>
           </Box>
