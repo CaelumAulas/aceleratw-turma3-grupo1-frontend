@@ -46,7 +46,7 @@ export default function HomePage() {
           alignItems="flex-start"
           justifyContent="space-between"
         >
-          <PageTitle title={`Veículos disponíveis ${brand}`} />
+          <PageTitle title={`Veículos disponíveis – ${brand}`} />
           <Button variant="text" component={Link} to="/">
             Ver todos veículos
           </Button>

@@ -19,26 +19,27 @@ export default function VehicleTable({
       headerName: 'Fabricante',
       width: 200,
       valueGetter: params => params.row.brand.name,
+      flex: 2,
     },
-    { field: 'model', headerName: 'Modelo', width: 400 },
+    { field: 'model', headerName: 'Modelo', flex: 3 },
     {
       field: 'year',
       headerName: 'Ano',
-      width: 150,
+      flex: 1,
     },
     {
       field: 'price',
       headerName: 'Preço',
       description: 'This column has a value getter and is not sortable.',
-      width: 200,
+      flex: 1,
       valueGetter: params => formatToCurrency(params.row.price),
     },
     {
       field: 'actions',
       headerName: 'Ações',
-      width: 200,
+      flex: 1,
       sortable: false,
-      filtrable: false,
+      filterable: false,
       hide: !userContext.user,
       renderCell: params => (
         <>
