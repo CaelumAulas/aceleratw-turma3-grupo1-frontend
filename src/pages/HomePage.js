@@ -4,35 +4,23 @@ import VehicleTable from 'components/VehicleTable/VehicleTable'
 import { deleteVehicle, listVehicles } from 'infraestructure/api/vehicles'
 import React, { useEffect, useState } from 'react'
 
-function sortVehiclesList(vehicles) {
-  vehicles = vehicles.sort((a, b) => {
-    if (a.brand < b.brand) return -1
-    if (a.brand > b.brand) return 1
-    return 0
-  })
-  return vehicles
-}
-
 export default function HomePage() {
   const [vehicles, setVehicles] = useState([])
 
   async function callApiListVehicles() {
-    try {
-      const response = await listVehicles()
-      setVehicles(sortVehiclesList(response.data))
-    } catch (e) {}
+    const response = await listVehicles()
+    setVehicles(response.data.content)
+  }
+
+  async function callApiDeleteVehicle(id) {
+    await deleteVehicle(id)
+    await callApiListVehicles()
   }
 
   useEffect(() => {
     callApiListVehicles()
   }, [])
 
-  async function callApiDeleteVehicle(id) {
-    try {
-      await deleteVehicle(id)
-      await callApiListVehicles()
-    } catch (e) {}
-  }
   return (
     <Container maxWidth="lg">
       <PageTitle title="Veículos disponíveis" />

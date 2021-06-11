@@ -14,7 +14,12 @@ export default function VehicleTable({
   const userContext = useContext(UserLoggedContext)
 
   const columns = [
-    { field: 'brand', headerName: 'Fabricante', width: 200 },
+    {
+      field: 'brand',
+      headerName: 'Fabricante',
+      width: 200,
+      valueGetter: params => params.row.brand.name,
+    },
     { field: 'model', headerName: 'Modelo', width: 400 },
     {
       field: 'year',
@@ -55,6 +60,7 @@ export default function VehicleTable({
       ),
     },
   ]
+  if (vehicles.length === 0) return <></>
   return (
     <div style={{ height: '70vh', width: '100%' }}>
       <DataGrid disableSelectionOnClick rows={vehicles} columns={columns} />

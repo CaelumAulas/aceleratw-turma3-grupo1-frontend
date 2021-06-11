@@ -12,22 +12,25 @@ export default function DashboardPage() {
   async function callApiListVehicles() {
     try {
       const response = await listVehicles()
-      setVehicles(response.data)
+      setVehicles(response.data.content)
     } catch (e) {}
   }
 
   const getBrands = useCallback(() => {
-    const brands = [...new Set(vehicles.map(vehicle => vehicle.brand))].sort()
+    if (!vehicles.length) return
+    const brands = [
+      ...new Set(vehicles.map(vehicle => vehicle.brand.name)),
+    ].sort()
     setBrands(brands)
   }, [vehicles])
 
   function getTotalVehiclesByBrand(brand) {
-    return vehicles.filter(vehicle => vehicle.brand === brand).length
+    return vehicles.filter(vehicle => vehicle.brand.name === brand).length
   }
 
   function getTotalPriceByBrand(brand) {
     const vehiclesForThisBrand = vehicles.filter(
-      vehicle => vehicle.brand === brand,
+      vehicle => vehicle.brand.name === brand,
     )
     return vehiclesForThisBrand.reduce(
       (previousValue, vehicle) => previousValue + vehicle.price,

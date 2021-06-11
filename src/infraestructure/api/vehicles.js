@@ -1,7 +1,7 @@
 import api from './api'
 
 export async function listVehicles() {
-  return await api.get('veiculos')
+  return await api.get('/vehicle')
 }
 
 export async function newVehicle({ brand, model, year, price }) {
