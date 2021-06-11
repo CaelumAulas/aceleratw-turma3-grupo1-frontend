@@ -1,8 +1,9 @@
-import { Box, Container } from '@material-ui/core'
+import { Box, Button, Container } from '@material-ui/core'
 import PageTitle from 'components/PageTitle/PageTitle'
 import VehicleTable from 'components/VehicleTable/VehicleTable'
 import { deleteVehicle, listVehicles } from 'infraestructure/api/vehicles'
 import React, { useEffect, useState } from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
 
 export default function HomePage() {
   const [vehicles, setVehicles] = useState([])
@@ -21,20 +22,46 @@ export default function HomePage() {
     callApiListVehicles()
   }, [])
 
+  const route = useRouteMatch()
+  const brand = route.params.fabricante
+
+  function getTableFilters() {
+    return {
+      items: [
+        {
+          columnField: 'brand',
+          operatorValue: 'contains',
+          value: brand,
+        },
+      ],
+    }
+  }
+
   return (
     <Container maxWidth="lg">
-      <PageTitle title="Veículos disponíveis" />
-      <Box mt={4}>
-        <VehicleTable
-          vehicles={vehicles}
-          onEditHandler={() => alert('Redicionar para a página de edição')}
-          onDeleteHandler={async id => {
-            if (window.confirm('Tem certeza que deseja apagar este item?')) {
-              await callApiDeleteVehicle(id)
-            }
-          }}
-        />
-      </Box>
+      {!brand && <PageTitle title="Veículos disponíveis" />}
+      {brand && (
+        <Box
+          display="flex"
+          alignItems="flex-start"
+          justifyContent="space-between"
+        >
+          <PageTitle title={`Veículos disponíveis ${brand}`} />
+          <Button variant="text" component={Link} to="/">
+            Ver todos veículos
+          </Button>
+        </Box>
+      )}
+      <VehicleTable
+        filters={getTableFilters()}
+        vehicles={vehicles}
+        onEditHandler={() => alert('Redicionar para a página de edição')}
+        onDeleteHandler={async id => {
+          if (window.confirm('Tem certeza que deseja apagar este item?')) {
+            await callApiDeleteVehicle(id)
+          }
+        }}
+      />
     </Container>
   )
 }

@@ -12,9 +12,12 @@ export default function AppRouter() {
   return (
     <Router>
       <Header />
-      <Box pt="10rem" pb="2rem">
+      <Box pt="8rem" pb="2rem">
         <Switch>
           <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/fabricante/:fabricante?" exact>
             <HomePage />
           </Route>
           <Route path="/login">

@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core'
+import { Card, IconButton } from '@material-ui/core'
 import { DataGrid } from '@material-ui/data-grid'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
@@ -10,9 +10,9 @@ export default function VehicleTable({
   vehicles = [],
   onDeleteHandler = () => {},
   onEditHandler = () => {},
+  filters = { items: [] },
 }) {
   const userContext = useContext(UserLoggedContext)
-
   const columns = [
     {
       field: 'brand',
@@ -60,10 +60,16 @@ export default function VehicleTable({
       ),
     },
   ]
+
   if (vehicles.length === 0) return <></>
   return (
-    <div style={{ height: '70vh', width: '100%' }}>
-      <DataGrid disableSelectionOnClick rows={vehicles} columns={columns} />
-    </div>
+    <Card style={{ height: '70vh', width: '100%' }}>
+      <DataGrid
+        disableSelectionOnClick
+        rows={vehicles}
+        columns={columns}
+        filterModel={filters}
+      />
+    </Card>
   )
 }

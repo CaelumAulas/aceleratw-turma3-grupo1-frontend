@@ -31,7 +31,7 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Link to="/" component={Button}>
+          <Link to={`/fabricante/${brand}`} component={Button}>
             Ver Todos
           </Link>
         </CardActions>

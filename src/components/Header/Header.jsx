@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <>
-      <AppBar color="primary" elevation={0}>
+      <AppBar color="primary">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link component={NavLink} to="/" color="inherit">
