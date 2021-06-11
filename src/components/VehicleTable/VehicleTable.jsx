@@ -44,7 +44,7 @@ export default function VehicleTable({
       renderCell: params => (
         <>
           <IconButton
-            onClick={() => onEditHandler(params.row.id)}
+            onClick={() => onEditHandler(params.row)}
             color="inherit"
             aria-label="Editar item"
           >

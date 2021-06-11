@@ -16,20 +16,22 @@ export default function VehicleForm({
   onSubmit,
   label = 'Enviar',
   value = {
-    brand: '',
+    brand: {
+      name: '',
+    },
     model: '',
     year: '2021',
-    price: '2',
+    price: '0',
   },
 }) {
   const [formData, setFormData] = useState(value)
 
-  const brands = ['Fiat', 'Jeep', 'Ford']
+  const brands = ['Ford', 'Fiat']
 
-  function updateFieldValue(event, field) {
+  function updateFieldValue(field) {
     setFormData({
       ...formData,
-      [field]: event.target.value,
+      ...field,
     })
   }
 
@@ -47,20 +49,24 @@ export default function VehicleForm({
         event.preventDefault()
         validateForm(formData)
         if (isFormValid()) onSubmit(formData)
-      }}
-    >
+      }}>
       <FormControl fullWidth>
-        <InputLabel htmlFor="brand">Selecione uma marca</InputLabel>
+        <InputLabel htmlFor='brand'>Selecione o fabricante</InputLabel>
         <Select
           fullWidth
           inputProps={{
             name: 'brand',
             id: 'brand',
           }}
-          value={formData.brand}
-          onChange={e => updateFieldValue(e, 'brand')}
-          required
-        >
+          value={formData.brand.name}
+          onChange={e =>
+            updateFieldValue({
+              brand: {
+                name: e.target.value,
+              },
+            })
+          }
+          required>
           {brands.map((brand, index) => (
             <MenuItem value={brand} key={index}>
               {brand}
@@ -70,52 +76,65 @@ export default function VehicleForm({
       </FormControl>
 
       <TextField
-        variant="standard"
-        margin="dense"
-        name="model"
-        label="Modelo"
+        variant='standard'
+        margin='dense'
+        name='model'
+        label='Modelo'
         fullWidth
         required
         value={formData.model}
-        onChange={e => updateFieldValue(e, 'model')}
+        onChange={e =>
+          updateFieldValue({
+            model: e.target.value,
+          })
+        }
         onBlur={validateFormField}
         helperText={errors.model.text}
       />
 
       <TextField
-        variant="standard"
-        margin="dense"
-        type="number"
-        name="year"
-        label="Ano"
+        variant='standard'
+        margin='dense'
+        type='number'
+        name='year'
+        label='Ano'
         fullWidth
         required
         value={formData.year}
-        onChange={e => updateFieldValue(e, 'year')}
+        onChange={e =>
+          updateFieldValue({
+            year: e.target.value,
+          })
+        }
         onBlur={validateFormField}
         helperText={errors.year.text}
       />
 
       <TextField
-        variant="standard"
-        margin="dense"
-        name="price"
-        type="number"
-        inputProps={{ min: 0 }}
-        label="Valor"
+        variant='standard'
+        margin='dense'
+        name='price'
+        type='number'
+        inputProps={{
+          min: 0,
+        }}
+        label='Valor'
         fullWidth
         required
         value={formData.price}
-        onChange={e => updateFieldValue(e, 'price')}
+        onChange={e =>
+          updateFieldValue({
+            price: e.target.value,
+          })
+        }
       />
 
       <Box mt={2}>
         <Button
-          type="submit"
+          type='submit'
           disableElevation
-          variant="contained"
-          color="secondary"
-        >
+          variant='contained'
+          color='secondary'>
           {label}
         </Button>
       </Box>

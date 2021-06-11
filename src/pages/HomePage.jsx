@@ -3,10 +3,11 @@ import PageTitle from 'components/PageTitle/PageTitle'
 import VehicleTable from 'components/VehicleTable/VehicleTable'
 import { deleteVehicle, listVehicles } from 'infraestructure/api/vehicles'
 import React, { useEffect, useState } from 'react'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 
 export default function HomePage() {
   const [vehicles, setVehicles] = useState([])
+  const history = useHistory()
 
   async function callApiListVehicles() {
     const response = await listVehicles()
@@ -37,17 +38,20 @@ export default function HomePage() {
     }
   }
 
+  function handleEditing(vehicle) {
+    history.push(`/veiculo/editar/${vehicle.id}`, { vehicle })
+  }
+
   return (
-    <Container maxWidth="lg">
-      {!brand && <PageTitle title="Veículos disponíveis" />}
+    <Container maxWidth='lg'>
+      {!brand && <PageTitle title='Veículos disponíveis' />}
       {brand && (
         <Box
-          display="flex"
-          alignItems="flex-start"
-          justifyContent="space-between"
-        >
+          display='flex'
+          alignItems='flex-start'
+          justifyContent='space-between'>
           <PageTitle title={`Veículos disponíveis – ${brand}`} />
-          <Button variant="text" component={Link} to="/">
+          <Button variant='text' component={Link} to='/'>
             Ver todos veículos
           </Button>
         </Box>
@@ -55,7 +59,7 @@ export default function HomePage() {
       <VehicleTable
         filters={getTableFilters()}
         vehicles={vehicles}
-        onEditHandler={() => alert('Redicionar para a página de edição')}
+        onEditHandler={handleEditing}
         onDeleteHandler={async id => {
           if (window.confirm('Tem certeza que deseja apagar este item?')) {
             await callApiDeleteVehicle(id)
