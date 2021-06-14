@@ -45,16 +45,14 @@ export default function VehicleTable({
         <>
           <IconButton
             onClick={() => onEditHandler(params.row)}
-            color="inherit"
-            aria-label="Editar item"
-          >
+            color='inherit'
+            aria-label='Editar item'>
             <EditOutlinedIcon />
           </IconButton>
           <IconButton
             onClick={() => onDeleteHandler(params.row.id)}
-            color="inherit"
-            aria-label="Apagar item"
-          >
+            color='inherit'
+            aria-label='Apagar item'>
             <DeleteOutlineIcon />
           </IconButton>
         </>
@@ -62,7 +60,7 @@ export default function VehicleTable({
     },
   ]
 
-  if (vehicles.length === 0) return <></>
+  if (vehicles.length === 0) return <>Não há veículos disponíveis.</>
   return (
     <Card style={{ height: '70vh', width: '100%' }}>
       <DataGrid
