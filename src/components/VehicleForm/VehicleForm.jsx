@@ -5,7 +5,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField
+  TextField,
 } from '@material-ui/core'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
@@ -115,10 +115,7 @@ export default function VehicleForm({
         variant='standard'
         margin='dense'
         name='price'
-        type='number'
-        inputProps={{
-          min: 0,
-        }}
+        type='text'
         label='Valor'
         fullWidth
         required
