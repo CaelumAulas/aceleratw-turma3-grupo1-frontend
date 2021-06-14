@@ -1,24 +1,26 @@
-import { yellow } from '@material-ui/core/colors'
-import purple from '@material-ui/core/colors/purple'
+import { purple, yellow } from '@material-ui/core/colors'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { ptBR } from '@material-ui/data-grid'
 
-const config = createMuiTheme(
-  {
-    palette: {
-      primary: {
-        main: purple[900],
-      },
-      secondary: {
-        main: yellow[300],
+export default function Theme({ children }) {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  const config = createMuiTheme(
+    {
+      palette: {
+        type: prefersDarkMode ? 'dark' : 'light',
+        shadow: [],
+        primary: {
+          main: prefersDarkMode ? purple[100] : purple[900],
+        },
+        secondary: {
+          main: prefersDarkMode ? yellow[100] : yellow[300],
+        },
       },
     },
-  },
-  ptBR,
-)
-
-export default function Theme({ children }) {
+    ptBR,
+  )
   return (
     <ThemeProvider theme={config}>
       <CssBaseline />
