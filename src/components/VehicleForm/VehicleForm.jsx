@@ -120,11 +120,7 @@ export default function VehicleForm({
         fullWidth
         required
         value={formData.price}
-        onChange={price =>
-          updateFieldValue({
-            price,
-          })
-        }
+        onChange={price => updateFieldValue({ price })}
       />
 
       <Box mt={2}>
