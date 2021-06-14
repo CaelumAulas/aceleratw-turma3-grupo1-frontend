@@ -18,22 +18,24 @@ export default function UpdateVehiclePage({ location }) {
 
   return (
     <>
-      <Container maxWidth="xs">
+      <Container maxWidth='xs'>
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title={`${formData.brand.name} ${formData.model}`} />
+            <PageTitle
+              h1='h5'
+              title={`${formData.brand.name} ${formData.model}`}
+            />
             <VehicleFlowFormValidationsContext.Provider
               value={{
                 brand: validateCarBrand,
                 year: validateCarYear,
                 model: validateCarModel,
-              }}
-            >
+              }}>
               <VehicleForm
                 value={formData}
                 onChange={formData => setFormData(formData)}
                 onSubmit={() => {}}
-                label="Editar"
+                label='Editar'
               />
             </VehicleFlowFormValidationsContext.Provider>
           </Box>
