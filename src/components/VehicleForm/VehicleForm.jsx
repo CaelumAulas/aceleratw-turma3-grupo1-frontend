@@ -7,6 +7,7 @@ import {
   Select,
   TextField,
 } from '@material-ui/core'
+import CurrencyInput from 'components/CurrencyInput/CurrencyInput'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useEffect, useState } from 'react'
@@ -111,18 +112,17 @@ export default function VehicleForm({
         helperText={errors.year.text}
       />
 
-      <TextField
+      <CurrencyInput
         variant='standard'
         margin='dense'
         name='price'
-        type='text'
         label='Valor'
         fullWidth
         required
         value={formData.price}
-        onChange={e =>
+        onChange={price =>
           updateFieldValue({
-            price: e.target.value,
+            price,
           })
         }
       />
