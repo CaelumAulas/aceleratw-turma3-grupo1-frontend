@@ -12,10 +12,10 @@ export default function Theme({ children }) {
         type: prefersDarkMode ? 'dark' : 'light',
         shadow: [],
         primary: {
-          main: prefersDarkMode ? purple[100] : purple[900],
+          main: prefersDarkMode ? '#fff' : purple[900],
         },
         secondary: {
-          main: prefersDarkMode ? yellow[100] : yellow[300],
+          main: prefersDarkMode ? yellow[300] : yellow[300],
         },
       },
     },
