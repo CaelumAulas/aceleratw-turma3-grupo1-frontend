@@ -17,7 +17,6 @@ export default function PageTitle({
       <Typography
         variant={mapSizeToHeadingNumber[size]}
         component='h1'
-        color='primary'
         gutterBottom>
         {title}
       </Typography>
