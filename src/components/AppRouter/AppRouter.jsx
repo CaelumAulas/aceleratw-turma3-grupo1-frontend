@@ -7,6 +7,7 @@ import DashboardPage from 'pages/DashboardPage'
 import HomePage from 'pages/HomePage'
 import LoginPage from 'pages/LoginPage'
 import UpdateVehiclePage from 'pages/UpdateVehiclePage'
+import UserListPage from 'pages/UserListPage'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 export default function AppRouter() {
@@ -35,6 +36,9 @@ export default function AppRouter() {
           </PrivateRoute>
           <PrivateRoute path='/veiculo/editar/:id'>
             <UpdateVehiclePage />
+          </PrivateRoute>
+          <PrivateRoute path='/usuarios'>
+            <UserListPage />
           </PrivateRoute>
         </Switch>
       </Box>
