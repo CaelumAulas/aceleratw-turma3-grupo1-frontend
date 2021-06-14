@@ -40,7 +40,7 @@ export function validateCarModel(model) {
 }
 
 export function validateCarBrand(brand) {
-  if (brand.trim().length < 1) {
+  if (brand.name.trim().length < 1) {
     return {
       isValid: false,
       text: 'É obrigatório selecionar a marca do veículo',

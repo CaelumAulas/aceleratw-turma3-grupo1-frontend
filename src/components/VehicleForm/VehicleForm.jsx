@@ -5,7 +5,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField,
+  TextField
 } from '@material-ui/core'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
@@ -37,6 +37,7 @@ export default function VehicleForm({
 
   useEffect(() => {
     onChange(formData)
+    console.log(formData)
   }, [formData])
 
   const formValidations = useContext(VehicleFlowFormValidationsContext)
