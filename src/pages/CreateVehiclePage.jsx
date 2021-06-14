@@ -23,7 +23,7 @@ export default function CreateVehiclePage() {
   async function callApiNewVehicle() {
     try {
       const response = await newVehicle({
-        brand: formData.brand,
+        brandname: formData.brand.name,
         model: formData.model,
         year: formData.year,
         price: formData.price,
