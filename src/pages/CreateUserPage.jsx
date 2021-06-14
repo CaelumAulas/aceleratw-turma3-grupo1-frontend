@@ -33,13 +33,14 @@ export default function CreateUserPage() {
     } catch (e) {}
   }
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth='xs'>
       <Paper elevation={3}>
         <Box p={3}>
-          <Box mb="0.5rem">
+          <Box mb='0.5rem'>
             <PageTitle
-              title="Cadastrar-se"
-              intro="Ficamos felizes com seu interesse em se registrar no Carango Bom. Preencha com seu usuário, e uma senha forte."
+              size='small'
+              title='Cadastrar-se'
+              intro='Ficamos felizes com seu interesse em se registrar no Carango Bom. Preencha com seu usuário, e uma senha forte.'
             />
           </Box>
           <UserFlowFormValidationsContext.Provider
@@ -51,8 +52,7 @@ export default function CreateUserPage() {
                   formData?.password,
                   passwordConfirmation,
                 ),
-            }}
-          >
+            }}>
             <RegisterUserForm
               onChange={formData => setFormData(formData)}
               onSubmit={callApiRegisterUser}

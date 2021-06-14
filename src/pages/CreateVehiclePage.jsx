@@ -53,18 +53,17 @@ export default function CreateVehiclePage() {
         open={showModal}
         onClose={() => setShowModal(false)}
       />
-      <Container maxWidth="xs">
+      <Container maxWidth='xs'>
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title="Novo veículo" />
+            <PageTitle size='small' title='Novo veículo' />
 
             <VehicleFlowFormValidationsContext.Provider
               value={{
                 brand: validateCarBrand,
                 year: validateCarYear,
                 model: validateCarModel,
-              }}
-            >
+              }}>
               <CreateVehicleForm
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiNewVehicle}

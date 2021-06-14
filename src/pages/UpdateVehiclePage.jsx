@@ -22,7 +22,7 @@ export default function UpdateVehiclePage({ location }) {
         <Paper elevation={3}>
           <Box p={3}>
             <PageTitle
-              h1='h5'
+              size='small'
               title={`${formData.brand.name} ${formData.model}`}
             />
             <VehicleFlowFormValidationsContext.Provider

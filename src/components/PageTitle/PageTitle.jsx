@@ -5,11 +5,20 @@ export default function PageTitle({
   title,
   subtitle = '',
   intro = '',
-  h1 = 'h4',
+  size = 'medium',
 }) {
+  const mapSizeToHeadingNumber = {
+    big: 'h3',
+    medium: 'h4',
+    small: 'h5',
+  }
   return (
-    <Box mb={2}>
-      <Typography variant={h1} component='h1' color='primary' gutterBottom>
+    <Box mb={3}>
+      <Typography
+        variant={mapSizeToHeadingNumber[size]}
+        component='h1'
+        color='primary'
+        gutterBottom>
         {title}
       </Typography>
       {subtitle && (
