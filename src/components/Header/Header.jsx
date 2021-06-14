@@ -54,6 +54,11 @@ export default function Header() {
               </Link>
             </Box>
             <Box p={1}>
+              <Link component={NavLink} to='/usuarios' color='inherit'>
+                Usuários
+              </Link>
+            </Box>
+            <Box p={1}>
               <MaterialLink
                 onClick={() => {
                   userContext.update('')
