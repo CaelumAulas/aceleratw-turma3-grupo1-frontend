@@ -3,7 +3,7 @@ import PageTitle from 'components/PageTitle/PageTitle'
 import React, { useEffect, useState } from 'react'
 import './Modal.css'
 
-export default function Modal({ title, description, open, onClose }) {
+export default function Modal({ title, subtitle, description, open, onClose }) {
   const [show, setShow] = useState(open)
 
   useEffect(() => {
@@ -13,26 +13,29 @@ export default function Modal({ title, description, open, onClose }) {
   if (!show) return <></>
   return (
     <div
-      className="background"
+      className='background'
       onClick={() => {
         setShow(false)
         onClose()
-      }}
-    >
-      <Container maxWidth="xs">
+      }}>
+      <Container maxWidth='xs'>
         <Card onClick={e => e.stopPropagation()}>
-          <Box p={4} className="modal-box">
-            <PageTitle title={title} intro={description} />
-            <Box pt={3}>
+          <Box p={4} className='modal-box'>
+            <PageTitle
+              title={title}
+              subtitle={subtitle}
+              size='small'
+              intro={description}
+            />
+            <Box pt={1}>
               <Button
                 disableElevation
-                variant="contained"
+                variant='contained'
                 color={'secondary'}
                 onClick={() => {
                   setShow(false)
                   onClose()
-                }}
-              >
+                }}>
                 Fechar
               </Button>
             </Box>

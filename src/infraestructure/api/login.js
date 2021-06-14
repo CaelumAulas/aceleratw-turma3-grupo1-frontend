@@ -1,5 +1,5 @@
 import api from './api'
 
-export async function login({ user, password }) {
-  return await api.get('login', { user, password })
+export async function login({ username, password }) {
+  return await api.post('auth', { username, password })
 }

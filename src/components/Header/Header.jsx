@@ -19,51 +19,49 @@ export default function Header() {
   const notificationContext = useContext(NotificationContext)
 
   const classes = useStyles()
-
   return (
     <>
-      <AppBar color="primary">
+      <AppBar color='primary'>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <Link component={NavLink} to="/" color="inherit">
+          <Typography variant='h6' className={classes.title}>
+            <Link component={NavLink} to='/' color='inherit'>
               Carango Bom
             </Link>
           </Typography>
           {!userContext.user && (
             <Box p={1}>
-              <Link component={NavLink} to="/login" color="inherit">
+              <Link component={NavLink} to='/entrar' color='inherit'>
                 Entrar
               </Link>
             </Box>
           )}
           <UserLoggedContent>
             <Box p={1}>
-              <Link component={NavLink} to="/dashboard" color="inherit">
+              <Link component={NavLink} to='/dashboard' color='inherit'>
                 Dashboard
               </Link>
             </Box>
           </UserLoggedContent>
           <Box p={1}>
-            <Link component={NavLink} to="/" color="inherit">
+            <Link component={NavLink} to='/' color='inherit'>
               Veículos
             </Link>
           </Box>
           <UserLoggedContent>
             <Box p={1}>
-              <Link component={NavLink} to="/novo-veiculo" color="inherit">
+              <Link component={NavLink} to='/novo-veiculo' color='inherit'>
                 Novo veículo
               </Link>
             </Box>
             <Box p={1}>
               <MaterialLink
                 onClick={() => {
-                  userContext.update(null)
+                  userContext.update('')
                   notificationContext.update({
                     message: 'Você saiu do sistema.',
                   })
                 }}
-                color="white"
-              >
+                color='white'>
                 Sair
               </MaterialLink>
             </Box>

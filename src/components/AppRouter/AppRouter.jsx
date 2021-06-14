@@ -13,27 +13,27 @@ export default function AppRouter() {
   return (
     <Router>
       <Header />
-      <Box pt="8rem" pb="2rem">
+      <Box pt='8rem' pb='2rem'>
         <Switch>
-          <Route path="/" exact>
+          <Route path='/' exact>
             <HomePage />
           </Route>
-          <Route path="/fabricante/:fabricante?" exact>
+          <Route path='/fabricante/:fabricante?' exact>
             <HomePage />
           </Route>
-          <Route path="/login">
+          <Route path='/entrar'>
             <LoginPage />
           </Route>
-          <Route path="/novo-usuario">
+          <Route path='/novo-usuario'>
             <CreateUserPage />
           </Route>
-          <PrivateRoute path="/dashboard">
+          <PrivateRoute path='/dashboard'>
             <DashboardPage />
           </PrivateRoute>
-          <PrivateRoute path="/novo-veiculo">
+          <PrivateRoute path='/novo-veiculo'>
             <CreateVehiclePage />
           </PrivateRoute>
-          <PrivateRoute path="/veiculo/editar/:id">
+          <PrivateRoute path='/veiculo/editar/:id'>
             <UpdateVehiclePage />
           </PrivateRoute>
         </Switch>

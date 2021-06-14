@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
 const UserFlowFormValidationsContext = createContext({
-  user: noValidation,
+  username: noValidation,
   password: noValidation,
   passwordConfirmation: noValidation,
 })

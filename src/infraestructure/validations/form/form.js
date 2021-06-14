@@ -1,13 +1,13 @@
-export function validateUser(user) {
-  if (user.length < 3) {
+export function validateUser(username) {
+  if (username.length < 3) {
     return { isValid: false, text: 'O usuário deve ter no mínimo 3 dígitos.' }
   }
   return { isValid: true, text: '' }
 }
 
 export function validatePassword(password) {
-  if (password.length < 4 || password.length > 72) {
-    return { isValid: false, text: 'Senha deve ter 4 e 72 dígitos.' }
+  if (password.length < 3 || password.length > 72) {
+    return { isValid: false, text: 'Senha deve ter 3 e 72 dígitos.' }
   }
   return { isValid: true, text: '' }
 }

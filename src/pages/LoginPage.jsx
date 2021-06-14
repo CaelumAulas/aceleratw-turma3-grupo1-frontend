@@ -25,16 +25,19 @@ export default function LoginPage() {
   async function callApiLogin() {
     try {
       const response = await login({
-        user: formData.user,
+        username: formData.username,
         password: formData.password,
       })
       const { data } = response
-      if (data.logado) {
+      if (data.token) {
         history.push('/')
         notification.update({
-          message: `Boas vindas, ${formData.user}! Aproveite o Carango Bom :)`,
+          message: `Boas vindas, ${formData.username}`,
         })
-        userLoggedContext.update(formData.user)
+        userLoggedContext.update({
+          username: formData.username,
+          token: data.token,
+        })
       } else {
         setShowModal(true)
       }
@@ -46,21 +49,20 @@ export default function LoginPage() {
   return (
     <>
       <Modal
-        title={'Não foi possível logar'}
+        title={'Não foi possível entrar'}
         description={'Por favor, tente novamente mais tarde.'}
         open={showModal}
         onClose={() => setShowModal(false)}
       />
-      <Container maxWidth="xs">
+      <Container maxWidth='xs'>
         <Paper elevation={3}>
           <Box p={3}>
-            <PageTitle title="Entrar" intro="Digite seu usuário e senha" />
+            <PageTitle title='Entrar' intro='Digite seu usuário e senha' />
             <UserFlowFormValidationsContext.Provider
               value={{
-                user: validateUser,
+                username: validateUser,
                 password: validatePassword,
-              }}
-            >
+              }}>
               <LoginForm
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiLogin}

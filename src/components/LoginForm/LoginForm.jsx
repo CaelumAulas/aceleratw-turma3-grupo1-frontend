@@ -5,12 +5,12 @@ import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
 import UserFlowValidations from 'contexts/UserFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link as NavLink } from 'react-router-dom'
 
 export default function LoginForm({ onChange, onSubmit }) {
   const [formData, setFormData] = useState({
-    user: '',
+    username: '',
     password: '',
   })
 
@@ -19,40 +19,43 @@ export default function LoginForm({ onChange, onSubmit }) {
       ...formData,
       [field]: event.target.value,
     })
-    onChange(formData)
   }
+
+  useEffect(() => {
+    onChange(formData)
+  }, [formData])
 
   const context = useContext(UserFlowValidations)
   const [errors, validateFormField, isFormValid, validateForm] =
     useFormValidators(context)
   return (
     <form
-      autoComplete="off"
+      autoComplete='off'
       onSubmit={event => {
         event.preventDefault()
         validateForm(formData)
         if (isFormValid()) onSubmit(formData)
-      }}
-    >
+      }}>
       <TextField
-        variant="standard"
-        margin="dense"
-        name="user"
-        label="Usuário"
+        autoFocus
+        variant='standard'
+        margin='dense'
+        name='username'
+        label='Usuário'
         onBlur={validateFormField}
         fullWidth
         required
-        helperText={errors.user.text}
-        value={formData.user}
-        onChange={event => updateFieldValue(event, 'user')}
+        helperText={errors.username.text}
+        value={formData.username}
+        onChange={event => updateFieldValue(event, 'username')}
       />
       <TextField
-        variant="standard"
-        margin="dense"
+        variant='standard'
+        margin='dense'
         onBlur={validateFormField}
-        name="password"
-        label="Senha"
-        type="password"
+        name='password'
+        label='Senha'
+        type='password'
         value={formData.password}
         helperText={errors.password.text}
         onChange={event => updateFieldValue(event, 'password')}
@@ -61,29 +64,27 @@ export default function LoginForm({ onChange, onSubmit }) {
       />
       <Box
         mt={2}
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
+        display='flex'
+        justifyContent='space-between'
+        alignItems='center'>
         <Button
           disabled={isFormValid() ? false : true}
-          variant="contained"
+          variant='contained'
           disableElevation
-          color="secondary"
-          type="submit"
-        >
+          color='secondary'
+          type='submit'>
           Fazer Login
         </Button>
         <p>
           ou{' '}
-          <Link component={NavLink} to="/novo-usuario">
+          <Link component={NavLink} to='/novo-usuario'>
             Cadastre-se {context.olar}
           </Link>
         </p>
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="warning">
+          <Alert severity='warning'>
             Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}

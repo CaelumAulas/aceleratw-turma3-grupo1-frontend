@@ -10,9 +10,9 @@ function App() {
   const [storedUser, setStoredUser] = useLocalStorage('user')
   const [user, setUser] = useState({
     user: storedUser,
-    update: user => {
-      setUser({ ...user, user })
-      setStoredUser(user)
+    update: newUser => {
+      setUser({ ...user, user: newUser })
+      setStoredUser(newUser)
     },
   })
 
