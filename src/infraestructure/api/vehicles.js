@@ -9,7 +9,7 @@ export async function newVehicle({ brandname, model, year, price }) {
 }
 
 export async function deleteVehicle(id) {
-  return await api.delete(`veiculos/${id}`)
+  return await api.delete(`vehicle/${id}`)
 }
 
 export async function updateVehicle(id, { brandName, model, year, price }) {
