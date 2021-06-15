@@ -4,8 +4,8 @@ export async function listVehicles() {
   return await api.get('/vehicle')
 }
 
-export async function newVehicle({ brandname, model, year, price }) {
-  return await api.post('/vehicle', { brandname, model, year, price })
+export async function newVehicle({ brandName, model, year, price }) {
+  return await api.post('/vehicle', { brandName, model, year, price })
 }
 
 export async function deleteVehicle(id) {
