@@ -5,5 +5,5 @@ export async function registerUser({ username, password }) {
 }
 
 export async function listUser() {
-  return await api.get('users')
+  return await api.get('/user')
 }

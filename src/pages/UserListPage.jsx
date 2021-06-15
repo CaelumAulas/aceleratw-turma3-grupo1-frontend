@@ -9,7 +9,7 @@ export default function UserListPage() {
 
   async function callUserList() {
     const response = await listUser()
-    setUsers(response.data)
+    setUsers(response.data.content)
   }
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function UserListPage() {
 
   return (
     <Container maxWidth='lg'>
-      <PageTitle title='Usuários disponíveis' />
+      <PageTitle title='Usuários' />
       <UserTable
         users={users}
         onDeleteHandler={() => {}}
