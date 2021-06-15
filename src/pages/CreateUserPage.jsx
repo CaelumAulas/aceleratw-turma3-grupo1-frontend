@@ -19,18 +19,15 @@ export default function CreateUserPage() {
   const history = useHistory()
 
   async function callApiRegisterUser() {
-    try {
-      const response = await registerUser({
-        username: formData.user,
-        password: formData.password,
-      })
-      const { data } = response
-      if (data) {
-        history.push('/')
-        userLoggedContext.update(formData.user)
-      } else {
-      }
-    } catch (e) {}
+    await registerUser({
+      username: formData.user,
+      password: formData.password,
+    })
+    if (!userLoggedContext.user.token) {
+      history.push('/entrar')
+      return
+    }
+    history.push('/usuarios')
   }
   return (
     <Container maxWidth='xs'>
