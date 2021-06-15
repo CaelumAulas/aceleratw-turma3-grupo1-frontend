@@ -33,8 +33,8 @@ export function validateCarYear(year) {
 }
 
 export function validateCarModel(model) {
-  if (model.length < 3) {
-    return { isValid: false, text: 'O modelo deve ter no mínimo 3 dígitos.' }
+  if (model.length < 2) {
+    return { isValid: false, text: 'O modelo deve ter no mínimo 2 dígitos.' }
   }
   return { isValid: true, text: '' }
 }

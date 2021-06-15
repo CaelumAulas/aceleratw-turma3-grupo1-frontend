@@ -23,7 +23,7 @@ export default function CreateVehiclePage() {
   async function callApiNewVehicle() {
     try {
       const response = await newVehicle({
-        brand: formData.brand,
+        brandName: formData.brand.name,
         model: formData.model,
         year: formData.year,
         price: formData.price,
@@ -32,7 +32,7 @@ export default function CreateVehiclePage() {
       if (status === 201) {
         history.push('/')
         notification.update({
-          message: `O veículo ${formData.brand} ${formData.model} foi criado com sucesso!`,
+          message: `O veículo ${formData.brand.name} ${formData.model} foi criado com sucesso!`,
           severity: 'success',
         })
       } else {

@@ -6,6 +6,6 @@ import { Route } from 'react-router-dom'
 export default function PrivateRoute({ children, ...rest }) {
   const userLoggedContext = useContext(UserLoggedContext)
 
-  if (!userLoggedContext.user) return <Redirect to="/login" />
+  if (!userLoggedContext.user) return <Redirect to='/entrar' />
   return <Route {...rest}>{children}</Route>
 }

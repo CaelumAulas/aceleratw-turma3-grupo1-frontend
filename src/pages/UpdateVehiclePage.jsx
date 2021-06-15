@@ -7,12 +7,12 @@ import { updateVehicle } from 'infraestructure/api/vehicles'
 import {
   validateCarBrand,
   validateCarModel,
-  validateCarYear
+  validateCarYear,
 } from 'infraestructure/validations/form/form'
 import React, { useContext, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
-export default function UpdateVehiclePage({ location }) {
+export default function UpdateVehiclePage() {
   const history = useHistory()
   const {
     state: { vehicle },
@@ -21,7 +21,6 @@ export default function UpdateVehiclePage({ location }) {
   const notification = useContext(NotificationContext)
 
   async function callUpdateVehicle() {
-    console.log()
     const response = await updateVehicle(vehicle.id, {
       brandName: formData.brand.name,
       model: formData.model,
@@ -32,7 +31,7 @@ export default function UpdateVehiclePage({ location }) {
     if (status === 200) {
       history.push('/')
       notification.update({
-        message: 'Veículo atualizado com sucesso :)',
+        message: 'Veículo atualizado com sucesso!',
       })
     }
   }
