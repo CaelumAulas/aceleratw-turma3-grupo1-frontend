@@ -36,8 +36,8 @@ export default function CreateUserPage() {
           <Box mb='0.5rem'>
             <PageTitle
               size='small'
-              title='Cadastrar-se'
-              intro='Ficamos felizes com seu interesse em se registrar no Carango Bom. Preencha com seu usuário, e uma senha forte.'
+              title='Novo usuário'
+              intro='Preencha o usuário, e uma senha forte.'
             />
           </Box>
           <UserFlowFormValidationsContext.Provider
