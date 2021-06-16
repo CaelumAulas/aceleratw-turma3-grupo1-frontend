@@ -37,6 +37,7 @@ export default function Header() {
                     width: 100,
                     position: 'relative',
                     top: 4,
+                    filter: 'brightness(2000%)',
                   }}
                 />
               </Link>
