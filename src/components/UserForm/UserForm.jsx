@@ -6,24 +6,29 @@ import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsCont
 import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function RegisterUserForm({ label, onSubmit, onChange }) {
-  const [formData, setFormData] = useState({
-    user: '',
+export default function UserForm({
+  value = {
+    username: '',
     password: '',
     passwordConfirmation: '',
-  })
+  },
+  onSubmit,
+  onChange,
+  label = 'Cadastrar',
+  editMode = false,
+}) {
+  const [formData, setFormData] = useState(value)
 
-  function updateFieldValue(event, field) {
+  function updateFieldValue(newValue) {
     setFormData({
       ...formData,
-      [field]: event.target.value,
+      ...newValue,
     })
   }
 
   const formValidations = useContext(UserFlowFormValidationsContext)
   useEffect(() => {
     onChange(formData)
-    console.log(formData)
   }, [formData])
 
   const [errors, validateFormField, isFormValid, validateForm] =
@@ -41,14 +46,15 @@ export default function RegisterUserForm({ label, onSubmit, onChange }) {
       <TextField
         variant='standard'
         margin='dense'
-        name='user'
+        name='username'
         label='Usuário'
         onBlur={validateFormField}
         fullWidth
         required
-        value={formData.user}
-        helperText={errors.user.text}
-        onChange={event => updateFieldValue(event, 'user')}
+        disabled={editMode}
+        value={formData.username}
+        helperText={errors.username.text}
+        onChange={event => updateFieldValue({ username: event.target.value })}
       />
       <TextField
         variant='standard'
@@ -59,7 +65,7 @@ export default function RegisterUserForm({ label, onSubmit, onChange }) {
         type='password'
         value={formData.password}
         helperText={errors.password.text}
-        onChange={event => updateFieldValue(event, 'password')}
+        onChange={event => updateFieldValue({ password: event.target.value })}
         fullWidth
         required
       />
@@ -72,7 +78,9 @@ export default function RegisterUserForm({ label, onSubmit, onChange }) {
         type='password'
         value={formData.passwordConfirmation}
         helperText={errors.passwordConfirmation.text}
-        onChange={event => updateFieldValue(event, 'passwordConfirmation')}
+        onChange={event =>
+          updateFieldValue({ passwordConfirmation: event.target.value })
+        }
         fullWidth
         required
       />

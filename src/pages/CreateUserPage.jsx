@@ -1,10 +1,10 @@
 import { Box, Paper } from '@material-ui/core'
 import Container from '@material-ui/core/Container'
-import RegisterUserForm from 'components/CreateUserForm/CreateUserForm'
 import PageTitle from 'components/PageTitle/PageTitle'
+import UserForm from 'components/UserForm/UserForm'
 import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsContext'
 import UserLoggedContext from 'contexts/UserLoggedContext'
-import { registerUser } from 'infraestructure/api/user'
+import { createUser } from 'infraestructure/api/user'
 import {
   validatePassword,
   validatePasswordConfirmation,
@@ -19,7 +19,7 @@ export default function CreateUserPage() {
   const history = useHistory()
 
   async function callApiRegisterUser() {
-    await registerUser({
+    await createUser({
       username: formData.user,
       password: formData.password,
     })
@@ -42,7 +42,7 @@ export default function CreateUserPage() {
           </Box>
           <UserFlowFormValidationsContext.Provider
             value={{
-              user: validateUser,
+              username: validateUser,
               password: validatePassword,
               passwordConfirmation: passwordConfirmation =>
                 validatePasswordConfirmation(
@@ -51,7 +51,7 @@ export default function CreateUserPage() {
                 ),
             }}
           >
-            <RegisterUserForm
+            <UserForm
               onChange={formData => setFormData(formData)}
               onSubmit={callApiRegisterUser}
             />

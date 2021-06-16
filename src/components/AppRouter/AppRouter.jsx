@@ -45,7 +45,7 @@ export default function AppRouter() {
           <PrivateRoute path='/usuarios'>
             <UserListPage />
           </PrivateRoute>
-          <PrivateRoute path='/usuario/editar/:id'>
+          <PrivateRoute path='/usuario/editar/:username'>
             <UpdateUserPage />
           </PrivateRoute>
         </Switch>
