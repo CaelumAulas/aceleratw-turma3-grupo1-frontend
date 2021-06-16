@@ -12,7 +12,7 @@ export default function DashboardPage() {
   async function callApiListVehicles() {
     try {
       const response = await listVehicles()
-      setVehicles(response.data.content)
+      setVehicles(response.data)
     } catch (e) {}
   }
 
