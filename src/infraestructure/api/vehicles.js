@@ -1,4 +1,4 @@
-import api from './api'
+import api from '.'
 
 export async function listVehicles() {
   return await api.get('/vehicle')

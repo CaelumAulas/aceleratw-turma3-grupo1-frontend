@@ -6,7 +6,7 @@ const UserFlowFormValidationsContext = createContext({
   passwordConfirmation: noValidation,
 })
 
-function noValidation(dados) {
+function noValidation() {
   return { isValid: true, text: '' }
 }
 export default UserFlowFormValidationsContext

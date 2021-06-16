@@ -51,7 +51,8 @@ export default function VehicleForm({
         event.preventDefault()
         validateForm(formData)
         if (isFormValid()) onSubmit(formData)
-      }}>
+      }}
+    >
       <FormControl fullWidth>
         <InputLabel htmlFor='brand'>Selecione o fabricante</InputLabel>
         <Select
@@ -68,7 +69,8 @@ export default function VehicleForm({
               },
             })
           }
-          required>
+          required
+        >
           {brands.map((brand, index) => (
             <MenuItem value={brand} key={index}>
               {brand}
@@ -128,7 +130,8 @@ export default function VehicleForm({
           type='submit'
           disableElevation
           variant='contained'
-          color='secondary'>
+          color='secondary'
+        >
           {label}
         </Button>
       </Box>

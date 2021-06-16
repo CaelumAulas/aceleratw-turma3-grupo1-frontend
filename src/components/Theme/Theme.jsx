@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { ptBR } from '@material-ui/data-grid'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function Theme({ children }) {
@@ -27,4 +28,8 @@ export default function Theme({ children }) {
       {children}
     </ThemeProvider>
   )
+}
+
+Theme.propTypes = {
+  children: PropTypes.node.isRequired,
 }

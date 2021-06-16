@@ -6,7 +6,7 @@ const VehicleFlowFormValidationsContext = createContext({
   year: noValidation,
 })
 
-function noValidation(dados) {
+function noValidation() {
   return { isValid: true, text: '' }
 }
 

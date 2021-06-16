@@ -31,7 +31,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
 
   return (
     <form
-      autoComplete="off"
+      autoComplete='off'
       onSubmit={event => {
         event.preventDefault()
         validateForm(formData)
@@ -39,10 +39,10 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       }}
     >
       <TextField
-        variant="standard"
-        margin="dense"
-        name="user"
-        label="Usuário"
+        variant='standard'
+        margin='dense'
+        name='user'
+        label='Usuário'
         onBlur={validateFormField}
         fullWidth
         required
@@ -51,12 +51,12 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
         onChange={event => updateFieldValue(event, 'user')}
       />
       <TextField
-        variant="standard"
-        margin="dense"
+        variant='standard'
+        margin='dense'
         onBlur={validateFormField}
-        name="password"
-        label="Senha"
-        type="password"
+        name='password'
+        label='Senha'
+        type='password'
         value={formData.password}
         helperText={errors.password.text}
         onChange={event => updateFieldValue(event, 'password')}
@@ -64,19 +64,19 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
         required
       />
       <TextField
-        variant="standard"
-        margin="dense"
+        variant='standard'
+        margin='dense'
         onBlur={validateFormField}
-        name="passwordConfirmation"
-        label="Confirmação de senha"
-        type="password"
+        name='passwordConfirmation'
+        label='Confirmação de senha'
+        type='password'
         value={formData.passwordConfirmation}
         helperText={errors.passwordConfirmation.text}
         onChange={event => updateFieldValue(event, 'passwordConfirmation')}
         fullWidth
         required
       />
-      <Box mt={2} display="flex" justifyContent="space-between">
+      <Box mt={2} display='flex' justifyContent='space-between'>
         <Button
           disabled={isFormValid() ? false : true}
           variant='contained'
@@ -89,7 +89,7 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       </Box>
       <Box mt={3}>
         {!isFormValid() && (
-          <Alert severity="warning">
+          <Alert severity='warning'>
             Necessário preencher as informações corretamente antes de continuar.
           </Alert>
         )}

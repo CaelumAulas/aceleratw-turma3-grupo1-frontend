@@ -62,7 +62,8 @@ export default function LoginPage() {
               value={{
                 username: validateUser,
                 password: validatePassword,
-              }}>
+              }}
+            >
               <LoginForm
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiLogin}

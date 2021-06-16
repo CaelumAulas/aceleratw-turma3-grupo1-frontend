@@ -46,13 +46,15 @@ export default function VehicleTable({
           <IconButton
             onClick={() => onEditHandler(params.row)}
             color='inherit'
-            aria-label='Editar item'>
+            aria-label='Editar item'
+          >
             <EditOutlinedIcon />
           </IconButton>
           <IconButton
             onClick={() => onDeleteHandler(params.row.id)}
             color='inherit'
-            aria-label='Apagar item'>
+            aria-label='Apagar item'
+          >
             <DeleteOutlineIcon />
           </IconButton>
         </>

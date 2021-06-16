@@ -2,6 +2,7 @@ import { Card, IconButton } from '@material-ui/core'
 import { DataGrid } from '@material-ui/data-grid'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function UserTable({
@@ -57,4 +58,11 @@ export default function UserTable({
       />
     </Card>
   )
+}
+
+UserTable.propTypes = {
+  users: PropTypes.array.isRequired,
+  onDeleteHandler: PropTypes.func,
+  onEditHandler: PropTypes.func,
+  filters: PropTypes.array,
 }

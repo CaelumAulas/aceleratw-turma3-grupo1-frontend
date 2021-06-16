@@ -48,12 +48,12 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth='lg'>
         <PageTitle
-          title="Dashboard"
-          subtitle="Nossas principais marcas disponíveis"
+          title='Dashboard'
+          subtitle='Nossas principais marcas disponíveis'
         />
-        <Box display="flex" flexWrap="wrap">
+        <Box display='flex' flexWrap='wrap'>
           {brands.map((brand, index) => (
             <BrandCard
               key={index}
