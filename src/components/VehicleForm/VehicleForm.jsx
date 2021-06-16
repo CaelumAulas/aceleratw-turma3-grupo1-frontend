@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Box,
   Button,
@@ -5,11 +6,12 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField,
+  TextField
 } from '@material-ui/core'
 import CurrencyInput from 'components/CurrencyInput/CurrencyInput'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
+import { listBrands } from 'infraestructure/api/brand'
 import React, { useContext, useEffect, useState } from 'react'
 
 export default function VehicleForm({
@@ -26,8 +28,12 @@ export default function VehicleForm({
   },
 }) {
   const [formData, setFormData] = useState(value)
+  const [brands, setBrands] = useState([])
 
-  const brands = ['Ford', 'Fiat']
+  async function callBrands() {
+    const { data: { content } } = await listBrands()
+    setBrands(content)
+  }
 
   function updateFieldValue(field) {
     setFormData({
@@ -38,6 +44,7 @@ export default function VehicleForm({
 
   useEffect(() => {
     onChange(formData)
+    callBrands()
   }, [formData])
 
   const formValidations = useContext(VehicleFlowFormValidationsContext)
@@ -70,11 +77,14 @@ export default function VehicleForm({
           }
           required
         >
-          {brands.map((brand, index) => (
-            <MenuItem value={brand} key={index}>
-              {brand}
+          {brands.map((brand) => (
+            <MenuItem value={brand.name} key={brand.id}>
+              {brand.name}
             </MenuItem>
           ))}
+          <MenuItem value='outro'>
+            Outro
+          </MenuItem>
         </Select>
       </FormControl>
 
