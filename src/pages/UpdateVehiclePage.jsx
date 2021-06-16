@@ -39,7 +39,7 @@ export default function UpdateVehiclePage() {
   return (
     <>
       <Container maxWidth='xs'>
-        <Paper elevation={3}>
+        <Paper variant='outlined'>
           <Box p={3}>
             <PageTitle
               size='small'

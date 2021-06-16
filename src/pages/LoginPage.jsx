@@ -55,7 +55,7 @@ export default function LoginPage() {
         onClose={() => setShowModal(false)}
       />
       <Container maxWidth='xs'>
-        <Paper elevation={3}>
+        <Paper elevation={3} variant='outlined'>
           <Box p={3}>
             <PageTitle title='Entrar' intro='Digite seu usuário e senha' />
             <UserFlowFormValidationsContext.Provider

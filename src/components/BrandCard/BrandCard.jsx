@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 export default function BrandCard({ brand, totalVehicles, amount }) {
   return (
     <Box mr={2} mb={2}>
-      <Card style={{ width: '230px' }}>
+      <Card style={{ width: '230px' }} variant='outlined'>
         <CardContent>
           <Box mb={5}>
             <DriveEtaOutlinedIcon fontSize={'medium'} />

@@ -37,7 +37,7 @@ export default function UpdateVehiclePage() {
   return (
     <>
       <Container maxWidth='xs'>
-        <Paper elevation={3}>
+        <Paper elevation={3} variant='outlined'>
           <Box p={3}>
             <PageTitle size='small' title={`Alterar senha`} />
             <UserFlowFormValidationsContext.Provider

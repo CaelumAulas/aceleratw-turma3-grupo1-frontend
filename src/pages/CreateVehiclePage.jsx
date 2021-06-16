@@ -54,7 +54,7 @@ export default function CreateVehiclePage() {
         onClose={() => setShowModal(false)}
       />
       <Container maxWidth='xs'>
-        <Paper elevation={3}>
+        <Paper elevation={3} variant='outlined'>
           <Box p={3}>
             <PageTitle size='small' title='Novo veículo' />
 

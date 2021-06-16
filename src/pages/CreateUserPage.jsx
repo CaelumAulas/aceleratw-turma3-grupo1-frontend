@@ -31,7 +31,7 @@ export default function CreateUserPage() {
   }
   return (
     <Container maxWidth='xs'>
-      <Paper elevation={3}>
+      <Paper elevation={3} variant='outlined'>
         <Box p={3}>
           <Box mb='0.5rem'>
             <PageTitle
