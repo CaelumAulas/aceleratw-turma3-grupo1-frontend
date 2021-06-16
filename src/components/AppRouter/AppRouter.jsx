@@ -17,7 +17,7 @@ export default function AppRouter() {
   return (
     <Router>
       <Header />
-      <Box pt='7rem' pb='2rem'>
+      <Box pt='4rem' pb='2rem'>
         <Switch>
           {/* public */}
           <Route path='/' exact>
