@@ -1,4 +1,4 @@
-import { purple, yellow } from '@material-ui/core/colors'
+import { orange, yellow } from '@material-ui/core/colors'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -14,10 +14,10 @@ export default function Theme({ children }) {
       palette: {
         type: prefersDarkMode ? 'dark' : 'light',
         primary: {
-          main: purple[900],
+          main: orange[900],
         },
         secondary: {
-          main: yellow[500],
+          main: yellow[200],
         },
       },
     },
