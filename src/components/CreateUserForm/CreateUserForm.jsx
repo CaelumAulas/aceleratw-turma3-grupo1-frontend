@@ -6,7 +6,7 @@ import UserFlowFormValidationsContext from 'contexts/UserFlowFormValidationsCont
 import useFormValidators from 'hooks/useFormValidators'
 import React, { useContext, useEffect, useState } from 'react'
 
-export default function RegisterUserForm({ onSubmit, onChange }) {
+export default function RegisterUserForm({ label, onSubmit, onChange }) {
   const [formData, setFormData] = useState({
     user: '',
     password: '',

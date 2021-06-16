@@ -47,7 +47,7 @@ export default function UserTable({
     },
   ]
 
-  if (users.length === 0) return <></>
+  if (users.length === 0) return <>Não usuários para serem exibidos.</>
   return (
     <Card style={{ height: '70vh', width: '100%' }}>
       <DataGrid
