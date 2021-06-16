@@ -6,6 +6,7 @@ import CreateVehiclePage from 'pages/CreateVehiclePage'
 import DashboardPage from 'pages/DashboardPage'
 import HomePage from 'pages/HomePage'
 import LoginPage from 'pages/LoginPage'
+import UpdateUserPage from 'pages/UpdateUserPage'
 import UpdateVehiclePage from 'pages/UpdateVehiclePage'
 import UserListPage from 'pages/UserListPage'
 import React from 'react'
@@ -17,6 +18,7 @@ export default function AppRouter() {
       <Header />
       <Box pt='7rem' pb='2rem'>
         <Switch>
+          {/* public */}
           <Route path='/' exact>
             <HomePage />
           </Route>
@@ -29,6 +31,8 @@ export default function AppRouter() {
           <Route path='/novo-usuario'>
             <CreateUserPage />
           </Route>
+
+          {/* private */}
           <PrivateRoute path='/dashboard'>
             <DashboardPage />
           </PrivateRoute>
@@ -40,6 +44,9 @@ export default function AppRouter() {
           </PrivateRoute>
           <PrivateRoute path='/usuarios'>
             <UserListPage />
+          </PrivateRoute>
+          <PrivateRoute path='/usuario/editar/:id'>
+            <UpdateUserPage />
           </PrivateRoute>
         </Switch>
       </Box>
