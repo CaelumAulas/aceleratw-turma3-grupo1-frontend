@@ -11,7 +11,7 @@ export default function HomePage() {
 
   async function callApiListVehicles() {
     const response = await listVehicles()
-    setVehicles(response.data.content)
+    setVehicles(response.data)
   }
 
   async function callApiDeleteVehicle(id) {
