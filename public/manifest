@@ -1,0 +1,10 @@
+{
+    "theme_color": "#4a148c",
+    "background_color": "#4a148c",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Carango Bom",
+    "short_name": "CB",
+    "icons": []
+}

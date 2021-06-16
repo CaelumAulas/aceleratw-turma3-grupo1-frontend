@@ -49,7 +49,8 @@ export default function HomePage() {
         <Box
           display='flex'
           alignItems='flex-start'
-          justifyContent='space-between'>
+          justifyContent='space-between'
+        >
           <PageTitle title={`Veículos disponíveis – ${brand}`} />
           <Button variant='text' component={Link} to='/'>
             Ver todos veículos

@@ -52,7 +52,8 @@ export default function CreateUserPage() {
                   formData?.password,
                   passwordConfirmation,
                 ),
-            }}>
+            }}
+          >
             <RegisterUserForm
               onChange={formData => setFormData(formData)}
               onSubmit={callApiRegisterUser}

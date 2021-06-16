@@ -1,6 +1,7 @@
 import { TextField } from '@material-ui/core'
 import { formatToCurrency } from 'infraestructure/currency'
-import { useRef, useState } from 'react'
+import PropTypes from 'prop-types'
+import React, { useRef, useState } from 'react'
 
 export default function CurrencyInput({ value, onChange, ...rest }) {
   const input = useRef()
@@ -36,4 +37,9 @@ export default function CurrencyInput({ value, onChange, ...rest }) {
       type='text'
     />
   )
+}
+
+CurrencyInput.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 }

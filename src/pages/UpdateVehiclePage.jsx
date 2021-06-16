@@ -50,7 +50,8 @@ export default function UpdateVehiclePage() {
                 brand: validateCarBrand,
                 year: validateCarYear,
                 model: validateCarModel,
-              }}>
+              }}
+            >
               <VehicleForm
                 value={formData}
                 onChange={formData => setFormData(formData)}

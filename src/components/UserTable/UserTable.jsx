@@ -26,16 +26,18 @@ export default function UserTable({
       renderCell: params => (
         <>
           <IconButton
-            onClick={() => onEditHandler(params.row.id)}
-            color="inherit"
-            aria-label="Editar item"
+            onClick={() => onEditHandler(params.row)}
+            color='inherit'
+            title='Editar usuário'
+            aria-label='Editar usuário'
           >
             <EditOutlinedIcon />
           </IconButton>
           <IconButton
-            onClick={() => onDeleteHandler(params.row.id)}
-            color="inherit"
-            aria-label="Apagar item"
+            onClick={() => onDeleteHandler(params.row)}
+            color='inherit'
+            title='Apagar usuário'
+            aria-label='Apagar usuário'
           >
             <DeleteOutlineIcon />
           </IconButton>

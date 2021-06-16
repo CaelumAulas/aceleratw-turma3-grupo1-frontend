@@ -1,4 +1,5 @@
 import { Box, Typography } from '@material-ui/core'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export default function PageTitle({
@@ -17,7 +18,8 @@ export default function PageTitle({
       <Typography
         variant={mapSizeToHeadingNumber[size]}
         component='h1'
-        gutterBottom>
+        gutterBottom
+      >
         {title}
       </Typography>
       {subtitle && (
@@ -32,4 +34,11 @@ export default function PageTitle({
       )}
     </Box>
   )
+}
+
+PageTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  intro: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
 }

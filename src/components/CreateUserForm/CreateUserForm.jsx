@@ -79,12 +79,12 @@ export default function RegisterUserForm({ onSubmit, onChange }) {
       <Box mt={2} display="flex" justifyContent="space-between">
         <Button
           disabled={isFormValid() ? false : true}
-          variant="contained"
-          color="secondary"
-          type="submit"
+          variant='contained'
+          color='secondary'
+          type='submit'
           disableElevation
         >
-          Cadastrar
+          {label}
         </Button>
       </Box>
       <Box mt={3}>

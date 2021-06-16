@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { ptBR } from '@material-ui/data-grid'
+import React from 'react'
 
 export default function Theme({ children }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -10,9 +11,8 @@ export default function Theme({ children }) {
     {
       palette: {
         type: prefersDarkMode ? 'dark' : 'light',
-        shadow: [],
         primary: {
-          main: prefersDarkMode ? '#fff' : purple[900],
+          main: prefersDarkMode ? '#c3c3c3' : purple[900],
         },
         secondary: {
           main: prefersDarkMode ? yellow[300] : yellow[300],

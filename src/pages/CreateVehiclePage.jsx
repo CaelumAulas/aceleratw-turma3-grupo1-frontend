@@ -63,7 +63,8 @@ export default function CreateVehiclePage() {
                 brand: validateCarBrand,
                 year: validateCarYear,
                 model: validateCarModel,
-              }}>
+              }}
+            >
               <CreateVehicleForm
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiNewVehicle}

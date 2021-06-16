@@ -66,7 +66,8 @@ export default function Header() {
                     message: 'Você saiu do sistema.',
                   })
                 }}
-                color='white'>
+                color='white'
+              >
                 Sair
               </MaterialLink>
             </Box>

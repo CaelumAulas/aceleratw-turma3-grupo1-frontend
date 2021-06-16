@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import Alert from '@material-ui/lab/Alert'
 import UserFlowValidations from 'contexts/UserFlowFormValidationsContext'
 import useFormValidators from 'hooks/useFormValidators'
+import PropTypes from 'prop-types'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link as NavLink } from 'react-router-dom'
 
@@ -35,7 +36,8 @@ export default function LoginForm({ onChange, onSubmit }) {
         event.preventDefault()
         validateForm(formData)
         if (isFormValid()) onSubmit(formData)
-      }}>
+      }}
+    >
       <TextField
         autoFocus
         variant='standard'
@@ -66,13 +68,15 @@ export default function LoginForm({ onChange, onSubmit }) {
         mt={2}
         display='flex'
         justifyContent='space-between'
-        alignItems='center'>
+        alignItems='center'
+      >
         <Button
           disabled={isFormValid() ? false : true}
           variant='contained'
           disableElevation
           color='secondary'
-          type='submit'>
+          type='submit'
+        >
           Fazer Login
         </Button>
         <p>
@@ -91,4 +95,9 @@ export default function LoginForm({ onChange, onSubmit }) {
       </Box>
     </form>
   )
+}
+
+LoginForm.propTypes = {
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 }
