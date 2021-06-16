@@ -14,7 +14,7 @@ export default function PageTitle({
     small: 'h5',
   }
   return (
-    <Box mb={3}>
+    <Box mb={7}>
       <Typography
         variant={mapSizeToHeadingNumber[size]}
         component='h1'

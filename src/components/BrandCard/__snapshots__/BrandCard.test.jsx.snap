@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BrandCard /> Must renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="MuiBox-root MuiBox-root-1"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+          style="width: 230px;"
+        >
+          <div
+            class="MuiCardContent-root"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-2"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18.92 5.01C18.72 4.42 18.16 4 17.5 4h-11c-.66 0-1.21.42-1.42 1.01L3 11v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 6h10.29l1.04 3H5.81l1.04-3zM19 16H5v-4.66l.12-.34h13.77l.11.34V16z"
+                />
+                <circle
+                  cx="7.5"
+                  cy="13.5"
+                  r="1.5"
+                />
+                <circle
+                  cx="16.5"
+                  cy="13.5"
+                  r="1.5"
+                />
+              </svg>
+              <h1
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+              >
+                Ford
+              </h1>
+            </div>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+            >
+              Total de
+            </p>
+            <h2
+              class="MuiTypography-root MuiTypography-h5"
+            >
+              10
+               
+              Veículos
+            </h2>
+            <p
+              class="MuiTypography-root MuiTypography-body2"
+            >
+              R$ 200.000,00
+            </p>
+          </div>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text"
+              href="/fabricante/Ford"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Ver Todos
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="MuiBox-root MuiBox-root-1"
+    >
+      <div
+        class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+        style="width: 230px;"
+      >
+        <div
+          class="MuiCardContent-root"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-2"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M18.92 5.01C18.72 4.42 18.16 4 17.5 4h-11c-.66 0-1.21.42-1.42 1.01L3 11v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 6h10.29l1.04 3H5.81l1.04-3zM19 16H5v-4.66l.12-.34h13.77l.11.34V16z"
+              />
+              <circle
+                cx="7.5"
+                cy="13.5"
+                r="1.5"
+              />
+              <circle
+                cx="16.5"
+                cy="13.5"
+                r="1.5"
+              />
+            </svg>
+            <h1
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+            >
+              Ford
+            </h1>
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+          >
+            Total de
+          </p>
+          <h2
+            class="MuiTypography-root MuiTypography-h5"
+          >
+            10
+             
+            Veículos
+          </h2>
+          <p
+            class="MuiTypography-root MuiTypography-body2"
+          >
+            R$ 200.000,00
+          </p>
+        </div>
+        <div
+          class="MuiCardActions-root MuiCardActions-spacing"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text"
+            href="/fabricante/Ford"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Ver Todos
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

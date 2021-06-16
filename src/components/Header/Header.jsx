@@ -34,7 +34,7 @@ export default function Header() {
                 <img
                   src='/images/logo.png'
                   style={{
-                    width: 130,
+                    width: 100,
                     position: 'relative',
                     top: 4,
                   }}

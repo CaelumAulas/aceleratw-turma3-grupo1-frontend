@@ -16,7 +16,7 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
       <Card style={{ width: '230px' }} variant='outlined'>
         <CardContent>
           <Box mb={5}>
-            <DriveEtaOutlinedIcon fontSize={'medium'} />
+            <DriveEtaOutlinedIcon fontSize={'small'} />
             <Typography variant='h5' component='h1' gutterBottom>
               {brand}
             </Typography>
@@ -43,5 +43,5 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
 BrandCard.propTypes = {
   brand: PropTypes.string.isRequired,
   totalVehicles: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
 }
