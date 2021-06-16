@@ -6,6 +6,7 @@ import CreateVehiclePage from 'pages/CreateVehiclePage'
 import DashboardPage from 'pages/DashboardPage'
 import HomePage from 'pages/HomePage'
 import LoginPage from 'pages/LoginPage'
+import LogoutPage from 'pages/LogoutPage'
 import UpdateUserPage from 'pages/UpdateUserPage'
 import UpdateVehiclePage from 'pages/UpdateVehiclePage'
 import UserListPage from 'pages/UserListPage'
@@ -47,6 +48,9 @@ export default function AppRouter() {
           </PrivateRoute>
           <PrivateRoute path='/usuario/editar/:username'>
             <UpdateUserPage />
+          </PrivateRoute>
+          <PrivateRoute path='/sair'>
+            <LogoutPage />
           </PrivateRoute>
         </Switch>
       </Box>

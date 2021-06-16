@@ -1,15 +1,19 @@
-import { AppBar, Box, Link as MaterialLink } from '@material-ui/core'
+import { AppBar, Box } from '@material-ui/core'
+import IconButton from '@material-ui/core/IconButton'
 import Link from '@material-ui/core/Link'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import MenuIcon from '@material-ui/icons/Menu'
+import Menu from 'components/Menu/Menu'
 import UserLoggedContent from 'components/UserLoggedContent/UserLoggedContent'
 import NotificationContext from 'contexts/NotificationContext'
 import UserLoggedContext from 'contexts/UserLoggedContext'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link as NavLink } from 'react-router-dom'
 
 export default function Header() {
+  const [showMenu, setShowMenu] = useState(false)
   const useStyles = makeStyles(() => ({
     title: {
       flexGrow: 1,
@@ -22,6 +26,7 @@ export default function Header() {
   return (
     <>
       <AppBar position='static'>
+        <Menu open={showMenu} onClose={() => setShowMenu(false)} />
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             <Link component={NavLink} to='/' color='inherit'>
@@ -35,6 +40,11 @@ export default function Header() {
               />
             </Link>
           </Typography>
+          <Box p={1}>
+            <Link component={NavLink} to='/' color='inherit'>
+              Todos veículos
+            </Link>
+          </Box>
           {!userContext.user && (
             <Box p={1}>
               <Link component={NavLink} to='/entrar' color='inherit'>
@@ -44,46 +54,19 @@ export default function Header() {
           )}
           <UserLoggedContent>
             <Box p={1}>
-              <Link component={NavLink} to='/dashboard' color='inherit'>
-                Dashboard
-              </Link>
-            </Box>
-          </UserLoggedContent>
-          <Box p={1}>
-            <Link component={NavLink} to='/' color='inherit'>
-              Veículos
-            </Link>
-          </Box>
-          <UserLoggedContent>
-            <Box p={1}>
-              <Link component={NavLink} to='/novo-veiculo' color='inherit'>
-                Novo veículo
-              </Link>
-            </Box>
-            <Box p={1}>
-              <Link component={NavLink} to='/usuarios' color='inherit'>
-                Usuários
-              </Link>
-            </Box>
-            <Box p={1}>
-              <Link component={NavLink} to='/novo-usuario' color='inherit'>
-                Novo usuário
-              </Link>
-            </Box>
-            <Box p={1}>
-              <MaterialLink
-                onClick={() => {
-                  userContext.update('')
-                  notificationContext.update({
-                    message: 'Você saiu do sistema.',
-                  })
-                }}
-                color='white'
-              >
+              <Link component={NavLink} to='/sair' color='inherit'>
                 Sair
-              </MaterialLink>
+              </Link>
             </Box>
           </UserLoggedContent>
+          <IconButton
+            edge='end'
+            color='inherit'
+            aria-label='menu'
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </>

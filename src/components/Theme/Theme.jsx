@@ -14,7 +14,7 @@ export default function Theme({ children }) {
       palette: {
         type: prefersDarkMode ? 'dark' : 'light',
         primary: {
-          main: teal[200],
+          main: teal[100],
         },
         secondary: {
           main: yellow[300],
