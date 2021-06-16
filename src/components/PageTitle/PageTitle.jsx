@@ -38,7 +38,7 @@ export default function PageTitle({
 
 PageTitle.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  intro: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  intro: PropTypes.string,
+  size: PropTypes.string,
 }
