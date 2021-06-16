@@ -21,11 +21,18 @@ export default function Header() {
   const classes = useStyles()
   return (
     <>
-      <AppBar color='primary'>
+      <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
             <Link component={NavLink} to='/' color='inherit'>
-              Carango Bom
+              <img
+                src='/images/logo.png'
+                style={{
+                  width: 110,
+                  position: 'relative',
+                  top: 3,
+                }}
+              />
             </Link>
           </Typography>
           {!userContext.user && (

@@ -16,7 +16,7 @@ export default function BrandCard({ brand, totalVehicles, amount }) {
       <Card style={{ width: '230px' }}>
         <CardContent>
           <Box mb={5}>
-            <DriveEtaOutlinedIcon color='primary' fontSize={'medium'} />
+            <DriveEtaOutlinedIcon fontSize={'medium'} />
             <Typography variant='h5' component='h1' gutterBottom>
               {brand}
             </Typography>

@@ -1,4 +1,4 @@
-import { purple, yellow } from '@material-ui/core/colors'
+import { teal, yellow } from '@material-ui/core/colors'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -10,13 +10,14 @@ export default function Theme({ children }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const config = createMuiTheme(
     {
+      shadows: ['none'],
       palette: {
         type: prefersDarkMode ? 'dark' : 'light',
         primary: {
-          main: prefersDarkMode ? '#c3c3c3' : purple[900],
+          main: teal[200],
         },
         secondary: {
-          main: prefersDarkMode ? yellow[300] : yellow[300],
+          main: yellow[200],
         },
       },
     },
