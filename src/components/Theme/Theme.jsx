@@ -17,7 +17,7 @@ export default function Theme({ children }) {
           main: teal[200],
         },
         secondary: {
-          main: yellow[200],
+          main: yellow[300],
         },
       },
     },
