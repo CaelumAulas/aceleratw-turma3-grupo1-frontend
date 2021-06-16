@@ -35,7 +35,7 @@ export default function UserTable({
             <EditOutlinedIcon />
           </IconButton>
           <IconButton
-            onClick={() => onDeleteHandler(params.row)}
+            onClick={() => onDeleteHandler(params.row.username)}
             color='inherit'
             title='Apagar usuário'
             aria-label='Apagar usuário'

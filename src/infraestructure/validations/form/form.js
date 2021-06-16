@@ -6,8 +6,8 @@ export function validateUser(username) {
 }
 
 export function validatePassword(password) {
-  if (password.length < 6 || password.length > 20) {
-    return { isValid: false, text: 'Senha deve ter 6 e 20 dígitos.' }
+  if (password.length < 3 || password.length > 20) {
+    return { isValid: false, text: 'Senha deve ter 3 e 20 dígitos.' }
   }
   return { isValid: true, text: '' }
 }

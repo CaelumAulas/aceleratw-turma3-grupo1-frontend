@@ -11,3 +11,7 @@ export async function listUser() {
 export async function updateUser(previousUsername, { username, password }) {
   return await api.put(`/user/${previousUsername}`, { username, password })
 }
+
+export async function deleteUser(username) {
+  return await api.delete(`/user/${username}`)
+}
