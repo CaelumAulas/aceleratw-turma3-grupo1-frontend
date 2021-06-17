@@ -29,13 +29,19 @@ export default function VehicleForm({
 }) {
   const [formData, setFormData] = useState(value)
   const [brands, setBrands] = useState([])
+  const [useOtherBrand, setUseOtherBrand] = useState(false)
 
   async function callBrands() {
-    const { data: { content } } = await listBrands()
+    const {
+      data: { content },
+    } = await listBrands()
     setBrands(content)
   }
 
   function updateFieldValue(field) {
+    if (field?.brand.name === 'Outro') {
+      setUseOtherBrand(true)
+    }
     setFormData({
       ...formData,
       ...field,
@@ -77,16 +83,33 @@ export default function VehicleForm({
           }
           required
         >
-          {brands.map((brand) => (
+          {brands.map(brand => (
             <MenuItem value={brand.name} key={brand.id}>
               {brand.name}
             </MenuItem>
           ))}
-          <MenuItem value='outro'>
-            Outro
-          </MenuItem>
+          <MenuItem value="Outro">Outro</MenuItem>
         </Select>
       </FormControl>
+
+      {useOtherBrand && <TextField
+        variant='standard'
+        margin='dense'
+        name='brand'
+        label='Fabricante'
+        value={''}
+        fullWidth
+        required={useOtherBrand}
+        onChange={e =>
+          updateFieldValue({
+            brand: {
+              name: e.target.value,
+            },
+          })
+        }
+        onBlur={validateFormField}
+        helperText={errors.brand.text}
+      />}
 
       <TextField
         variant='standard'
