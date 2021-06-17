@@ -23,7 +23,7 @@ Object {
               >
                 <img
                   src="/images/logo.png"
-                  style="width: 100px; position: relative; top: 4px; filter: brightness(2000%);"
+                  style="width: 120px; position: relative; top: 4px; filter: brightness(2000%);"
                 />
               </a>
             </h6>
@@ -95,7 +95,7 @@ Object {
             >
               <img
                 src="/images/logo.png"
-                style="width: 100px; position: relative; top: 4px; filter: brightness(2000%);"
+                style="width: 120px; position: relative; top: 4px; filter: brightness(2000%);"
               />
             </a>
           </h6>

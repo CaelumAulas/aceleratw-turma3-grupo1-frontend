@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
+import Logo from 'components/Logo/Logo'
 import Menu from 'components/Menu/Menu'
 import UserLoggedContent from 'components/UserLoggedContent/UserLoggedContent'
 import NotificationContext from 'contexts/NotificationContext'
@@ -31,15 +32,7 @@ export default function Header() {
           <Toolbar>
             <Typography variant='h6' className={classes.title}>
               <Link component={NavLink} to='/' color='inherit'>
-                <img
-                  src='/images/logo.png'
-                  style={{
-                    width: 100,
-                    position: 'relative',
-                    top: 4,
-                    filter: 'brightness(2000%)',
-                  }}
-                />
+                <Logo />
               </Link>
             </Typography>
             <Box p={1}>
