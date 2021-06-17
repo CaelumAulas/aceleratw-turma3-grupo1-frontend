@@ -1,7 +1,7 @@
 import { Box, Container, Paper } from '@material-ui/core'
 import Modal from 'components/Modal/Modal'
 import PageTitle from 'components/PageTitle/PageTitle'
-import CreateVehicleForm from 'components/VehicleForm/VehicleForm'
+import VehicleForm from 'components/VehicleForm/VehicleForm'
 import NotificationContext from 'contexts/NotificationContext'
 import VehicleFlowFormValidationsContext from 'contexts/VehicleFlowFormValidationsContext'
 import { newVehicle } from 'infraestructure/api/vehicles'
@@ -65,7 +65,7 @@ export default function CreateVehiclePage() {
                 model: validateCarModel,
               }}
             >
-              <CreateVehicleForm
+              <VehicleForm
                 onChange={formData => setFormData(formData)}
                 onSubmit={callApiNewVehicle}
               />
